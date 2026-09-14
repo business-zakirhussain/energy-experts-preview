@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Independent electrical design, classification and inspection for offshore wind, solar and industrial power systems. Belgium, France, Spain.">
+<script>(function(){try{var t=localStorage.getItem("ee-theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="shared/base.css">
+<title>Energy Experts BV — Immersive</title>
+<style>
+/* ====== DESIGN 4 · IMMERSIVE ======  cinematic photography, glass surfaces, sea-glass accent, interactive turbine */
+:root{
+  --bg:#F1F6F7; --surface:#FFFFFF; --surface-2:#E5EEF0; --surface-3:#D6E3E6;
+  --ink:#0B1C26; --ink-2:#45606C; --ink-3:#7C939D; --rule:#D2DFE3; --rule-soft:#E1EAED;
+  --accent:#0E9C95; --accent-ink:#FFFFFF; --accent-soft:#D6F0EE; --good:#2E8B57;
+  --glass:rgba(255,255,255,.72); --glass-b:rgba(11,28,38,.1); --blade:#0B1C26; --blade-2:#45606C;
+  --shadow-1:0 1px 2px rgba(11,28,38,.06); --shadow-2:0 2px 6px rgba(11,28,38,.06),0 24px 48px -20px rgba(11,28,38,.3);
+  --radius:18px; --radius-s:10px;
+}
+html[data-theme="dark"]{
+  --bg:#06111A; --surface:#0C1B26; --surface-2:#122534; --surface-3:#1A3242;
+  --ink:#EAF2F4; --ink-2:#A9BCC4; --ink-3:#6F8590; --rule:#1C3140; --rule-soft:#142837;
+  --accent:#3FD0C9; --accent-ink:#03201E; --accent-soft:#0F3A3A; --good:#5BC58A;
+  --glass:rgba(12,27,38,.55); --glass-b:rgba(255,255,255,.1); --blade:#EAF2F4; --blade-2:#A9BCC4;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 2px 6px rgba(0,0,0,.4),0 24px 48px -20px rgba(0,0,0,.8);
+}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+section{padding:110px 0}
+.sec-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:48px}
+.sec-hd h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:600;letter-spacing:-.035em;margin-top:14px;line-height:1.02}
+.sec-hd .sub{color:var(--ink-2);max-width:42ch;font-size:16.5px}
+.glass{background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);border:1px solid var(--glass-b);border-radius:var(--radius)}
+.tlink{font-size:14px;font-weight:600;text-decoration:none;color:var(--accent);display:inline-flex;gap:8px;align-items:center}
+.tlink svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+.tlink:hover svg{transform:translateX(4px)}
+
+/* header */
+header{position:sticky;top:0;z-index:100;margin-bottom:-78px;transition:background .3s var(--ease),border-color .3s var(--ease)}
+header.stuck{background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);border-bottom:1px solid var(--glass-b)}
+.bar{display:flex;align-items:center;gap:28px;height:78px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;transition:color .3s}
+header.stuck .brand{color:var(--ink)}
+.brand-mk{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink)}
+.brand-mk svg{width:19px;height:19px}
+.brand strong{font-size:17.5px;font-weight:600;letter-spacing:-.02em}
+nav.main{display:flex;gap:4px;margin:0 auto;padding:5px;border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14)}
+header.stuck nav.main{background:transparent;border-color:transparent;backdrop-filter:none}
+nav.main a{font-size:14px;font-weight:500;text-decoration:none;color:rgba(255,255,255,.85);padding:8px 14px;border-radius:999px;transition:all .2s var(--ease)}
+header.stuck nav.main a{color:var(--ink-2)}
+nav.main a:hover,nav.main a.on{background:rgba(255,255,255,.16);color:#fff}
+header.stuck nav.main a:hover,header.stuck nav.main a.on{background:var(--surface-2);color:var(--ink)}
+.tools{display:flex;align-items:center;gap:8px}
+.tools .lang,.tools .icon-btn,.tools .burger{border-color:rgba(255,255,255,.25);color:#fff;border-radius:999px;background:rgba(255,255,255,.08)}
+.tools .lang button{color:rgba(255,255,255,.7)}
+.tools .lang button[aria-pressed="true"]{background:#fff;color:#0B1C26}
+.tools .burger i{background:#fff}
+header.stuck .tools .lang,header.stuck .tools .icon-btn,header.stuck .tools .burger{border-color:var(--rule);color:var(--ink-2);background:transparent}
+header.stuck .tools .lang button{color:var(--ink-3)}
+header.stuck .tools .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+header.stuck .tools .burger i{background:var(--ink)}
+.burger{display:none}
+
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0 0 64px}
+.hero-bg{position:absolute;inset:0;background:url(img/oss-blighbank.jpg) center/cover;animation:kb 26s var(--ease) forwards;transform-origin:60% 40%}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1)}}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,17,26,.94) 0%,rgba(6,17,26,.55) 45%,rgba(6,17,26,.25) 100%);z-index:1}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,8vw,7rem);font-weight:600;letter-spacing:-.045em;line-height:.96;max-width:12ch;animation:up 1s var(--ease) .2s both}
+.hero h1 em{font-style:normal;color:var(--accent)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero .lede{margin-top:26px;font-size:19px;line-height:1.55;color:rgba(255,255,255,.8);max-width:50ch;animation:up 1s var(--ease) .4s both}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px;animation:up 1s var(--ease) .55s both}
+.hero .btn-b{border-color:rgba(255,255,255,.4);color:#fff}
+.hero .btn-b:hover{border-color:#fff}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);animation:up 1s var(--ease) .7s both}
+.hero-foot .mini{display:flex;gap:40px}
+.hero-foot .mini div b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em}
+.hero-foot .mini div span{font-size:12.5px;color:rgba(255,255,255,.6);font-weight:500}
+.scroll{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:12px;font-weight:600}
+.scroll i{width:1px;height:38px;background:linear-gradient(to bottom,var(--accent),transparent);display:block;animation:drop 1.8s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.cap{position:absolute;right:28px;bottom:22px;z-index:2;font-size:11.5px;color:rgba(255,255,255,.55)}
+
+/* marquee */
+.marq{border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);overflow:hidden;padding:18px 0;background:var(--surface)}
+.marq-in{display:flex;gap:64px;width:max-content;animation:tick 46s linear infinite;font-size:13.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.marq-in span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:20px;vertical-align:middle}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* about + mission */
+.am{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.am article{padding:40px 38px}
+.am h3{font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:600;letter-spacing:-.03em;margin:14px 0 16px;line-height:1.08}
+.am p{color:var(--ink-2);font-size:16.5px;margin-bottom:14px}
+.am .mission{background:linear-gradient(135deg,var(--accent-soft),transparent 70%)}
+.am .mission h3{color:var(--accent)}
+
+/* services over photo */
+.svc-band{position:relative;background:url(img/oss-sarens.jpg) center/cover;padding:120px 0}
+.svc-band::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg),rgba(6,17,26,.6) 30%,rgba(6,17,26,.6) 70%,var(--bg))}
+html[data-theme="light"] .svc-band::before{background:linear-gradient(to bottom,var(--bg),rgba(241,246,247,.5) 30%,rgba(241,246,247,.5) 70%,var(--bg))}
+.svc-band .wrap{position:relative}
+.svc-band .sec-hd h2,.svc-band .sec-hd .sub{color:#fff}
+html[data-theme="light"] .svc-band .sec-hd h2,html[data-theme="light"] .svc-band .sec-hd .sub{color:var(--ink)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc article{padding:30px 28px;display:flex;flex-direction:column;gap:14px;transition:transform .3s var(--ease),border-color .3s var(--ease)}
+.svc article:hover{transform:translateY(-6px);border-color:var(--accent)}
+.ico{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.ico svg{width:22px;height:22px}
+.svc h3{font-size:21px;font-weight:600;letter-spacing:-.015em}
+.svc p{color:var(--ink-2);font-size:15.5px;flex:1}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;border-top:1px solid var(--rule-soft);padding-top:14px}
+.svc li{font-size:14.5px;color:var(--ink-2);display:flex;gap:10px;align-items:center}
+.svc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.svc .btn{margin-top:6px}
+
+/* partners wall */
+.partners{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.logo{padding:30px 18px;display:grid;place-items:center;font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink-3);
+  transition:color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
+.logo:hover{color:var(--ink);border-color:var(--accent);transform:translateY(-3px)}
+.logo small{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.6;margin-top:4px;text-align:center}
+
+/* why + stats */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.why h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:600;letter-spacing:-.035em;margin:14px 0 22px;line-height:1.02}
+.why .pts{display:grid;gap:14px}
+.why .pt{padding:22px 24px;display:flex;gap:18px;align-items:flex-start}
+.why .pt h3{font-size:17.5px;font-weight:600;margin-bottom:5px}
+.why .pt p{font-size:14.5px;color:var(--ink-2)}
+.stat-band{position:relative;background:url(img/wind-thornton-air.jpg) center/cover;padding:120px 0;color:#fff}
+.stat-band::before{content:"";position:absolute;inset:0;background:rgba(6,17,26,.72)}
+.stat-band .wrap{position:relative}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stats div{padding:30px 28px}
+.stats .v{font-size:clamp(2.8rem,5.4vw,4.6rem);font-weight:600;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.stats .v .u{color:var(--accent)}
+.stats .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.65;margin-top:12px}
+.stat-band .glass{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+
+/* sectors tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tile{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;text-decoration:none;color:#fff;display:flex;align-items:flex-end;padding:30px}
+.tile .bg{position:absolute;inset:0;background:var(--surface-2) center/cover;transition:transform .8s var(--ease)}
+.tile:hover .bg{transform:scale(1.06)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,17,26,.9),rgba(6,17,26,.15) 60%)}
+.tile>div{position:relative;z-index:1}
+.tile .n{font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--accent)}
+.tile h3{font-size:26px;font-weight:600;letter-spacing:-.025em;margin:8px 0 6px}
+.tile p{font-size:14.5px;opacity:.8;max-width:44ch}
+
+/* project strip (horizontal snap) */
+.strip-wrap{overflow-x:auto;scroll-snap-type:x mandatory;display:flex;gap:20px;padding:6px 28px 26px;margin:0 -28px;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.strip-wrap::-webkit-scrollbar{height:6px}.strip-wrap::-webkit-scrollbar-thumb{background:var(--rule);border-radius:3px}
+.pcard{flex:0 0 min(78vw,400px);scroll-snap-align:start;position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;cursor:pointer;color:#fff;display:flex;align-items:flex-end;padding:26px}
+.pcard .bg{position:absolute;inset:0;background:var(--surface-2) center/cover;transition:transform .7s var(--ease)}
+.pcard:hover .bg{transform:scale(1.05)}
+.pcard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,17,26,.95),rgba(6,17,26,.2) 55%,transparent)}
+.pcard>div{position:relative;z-index:1;width:100%}
+.pcard .tag{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.pcard h3{font-size:25px;font-weight:600;letter-spacing:-.025em;margin:8px 0 10px}
+.pcard .meta{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;opacity:.8;padding-top:12px;border-top:1px solid rgba(255,255,255,.2)}
+.pcard .meta b{font-weight:600;opacity:1}
+.hint{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--ink-3);margin-top:6px}
+.hint svg{width:16px;height:16px;color:var(--accent)}
+
+/* ============================================================
+   TURBINE STAGE — DISABLED
+   To switch it back on:
+     1. delete the opening marker line below and the closing one
+     2. do the same for the markup stash and the script block
+     3. delete the .strip-wrap / .pcard rules above and the
+        #projects strip section in the markup
+   ------------------------------------------------------------ */
+/* >>> TURBINE CSS START
+
+.turb-sec{position:relative;min-height:100svh;min-height:100vh;overflow:hidden;padding:0;
+  background:#040E15;isolation:isolate;--D:clamp(780px,108vmax,2000px);--hx:60%;--hy:42%}
+.turb-bgs{position:absolute;inset:0;z-index:0}
+.turb-bg{position:absolute;inset:0;background:#040E15 center/cover no-repeat;opacity:0;
+  transform:scale(1.1);transition:opacity 1.15s var(--ease),transform 7s linear}
+.turb-bg.live{opacity:1;transform:scale(1.005)}
+.turb-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(3,11,17,.95) 0%,rgba(3,11,17,.55) 42%,rgba(3,11,17,.35) 70%,rgba(3,11,17,.7) 100%),
+             linear-gradient(to right,rgba(3,11,17,.85) 0%,rgba(3,11,17,.15) 55%,transparent 100%)}
+
+
+.rotor-pos{position:absolute;left:var(--hx);top:var(--hy);width:var(--D);height:var(--D);
+  transform:translate(-50%,-50%);z-index:2;pointer-events:none}
+.rotor{width:100%;height:100%;overflow:visible;will-change:transform}
+.blade{pointer-events:auto;cursor:pointer}
+.blade .body{fill:url(#bladeFill);stroke:rgba(255,255,255,.28);stroke-width:1.1;
+  transition:stroke .35s var(--ease),opacity .35s var(--ease)}
+.blade .edge{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1.6;stroke-linecap:round;
+  transition:stroke .35s var(--ease),opacity .35s var(--ease);opacity:.5}
+.blade:hover .body,.blade.on .body{stroke:var(--accent)}
+.blade:hover .edge,.blade.on .edge{stroke:var(--accent);opacity:1}
+.blade.on .body{fill:url(#bladeFillOn)}
+.sheen{fill:url(#sheenFill);opacity:0}
+.blade.lit .sheen{animation:sheen 1.5s var(--ease) forwards}
+@keyframes sheen{0%{opacity:0;transform:translateY(60px)}18%{opacity:1}100%{opacity:0;transform:translateY(-520px)}}
+.tower{fill:url(#towerFill)}
+.hub-d{fill:#0A1D28;stroke:var(--accent);stroke-width:2}
+.hub-c{fill:var(--accent)}
+.hub-r{fill:none;stroke:rgba(255,255,255,.3);stroke-width:1}
+.pulse{fill:none;stroke:var(--accent);stroke-width:2.5;opacity:0}
+.turb-sec.pulsing .pulse{animation:pulse 1.3s var(--ease) forwards}
+@keyframes pulse{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(4.2)}}
+.ghosts{opacity:0;transition:opacity .3s var(--ease)}
+.turb-sec.spinning .ghosts{opacity:1}
+.ghosts .body{fill:rgba(190,225,232,.09);stroke:none}
+
+
+.node{position:absolute;left:var(--hx);top:var(--hy);z-index:4;display:flex;align-items:center;gap:0;
+  padding:0;height:52px;border-radius:999px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(6,20,28,.6);backdrop-filter:blur(14px);color:#fff;cursor:pointer;overflow:hidden;
+  box-shadow:0 10px 34px -12px rgba(0,0,0,.9);
+  transition:border-color .3s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease)}
+.node b{display:grid;place-items:center;width:50px;height:50px;flex-shrink:0;font-size:14px;font-weight:700;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.node .nm{max-width:0;opacity:0;white-space:nowrap;font-size:15px;font-weight:600;letter-spacing:-.01em;
+  transition:max-width .45s var(--ease),opacity .3s var(--ease),padding .45s var(--ease);padding:0}
+.node:hover{border-color:var(--accent);background:rgba(6,20,28,.85)}
+.node:hover .nm{max-width:280px;opacity:1;padding:0 20px 0 2px}
+.node.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);
+  box-shadow:0 12px 40px -10px rgba(63,208,201,.65)}
+.node.on .nm{max-width:280px;opacity:1;padding:0 22px 0 2px}
+.node.dim{opacity:.46}
+
+
+.turb-in{position:relative;z-index:5;min-height:100svh;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:space-between;padding:104px 0 44px;pointer-events:none}
+.turb-in>*{pointer-events:auto}
+.turb-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.turb-top .lbl{color:var(--accent)}
+.turb-top h2{font-size:clamp(1.9rem,3.4vw,2.9rem);font-weight:600;letter-spacing:-.035em;color:#fff;margin-top:10px}
+.counter{font-size:13px;font-weight:700;letter-spacing:.14em;color:#fff;background:rgba(6,20,28,.55);
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;backdrop-filter:blur(10px);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.turb-btm{display:flex;justify-content:space-between;align-items:flex-end;gap:36px}
+.tp{max-width:620px;color:#fff}
+.tp .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px}
+.tp h3{font-size:clamp(2.3rem,5.6vw,4.6rem);font-weight:600;letter-spacing:-.045em;line-height:.98;color:#fff}
+.tp h3 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.tp h3 .w i{display:inline-block;font-style:normal;transform:translateY(0);transition:transform .7s var(--ease)}
+.tp.enter h3 .w i{transform:translateY(105%)}
+.tp-meta{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 16px}
+.tp-meta span{font-size:13px;font-weight:600;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;padding:7px 14px;color:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.tp-meta span b{color:#fff}
+.tp.enter .tp-meta span,.tp.enter p{opacity:0;transform:translateY(14px)}
+.tp p{color:rgba(255,255,255,.78);font-size:16.5px;max-width:56ch;
+  transition:opacity .5s var(--ease) .1s,transform .5s var(--ease) .1s}
+.tp-act{display:flex;gap:12px;align-items:center;margin-top:26px;flex-wrap:wrap}
+.tp-side{display:flex;flex-direction:column;align-items:flex-end;gap:16px;flex-shrink:0}
+.tp-nav{display:flex;gap:8px}
+.tp-nav button{width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.28);
+  background:rgba(6,20,28,.5);backdrop-filter:blur(10px);color:#fff;cursor:pointer;display:grid;place-items:center;
+  transition:all .22s var(--ease)}
+.tp-nav button:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.tp-nav svg{width:17px;height:17px}
+.tp-dots{display:flex;gap:6px}
+.tp-dots button{width:26px;height:4px;border-radius:2px;border:0;background:rgba(255,255,255,.28);cursor:pointer;
+  padding:0;transition:background .25s var(--ease),width .25s var(--ease)}
+.tp-dots button.on{background:var(--accent);width:44px}
+.tp-auto{font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.tp-auto i{width:7px;height:7px;border-radius:50%;background:var(--good);display:block;
+  animation:hubpulse 2s ease-in-out infinite}
+.tp-auto.paused i{background:rgba(255,255,255,.4);animation:none}
+@keyframes hubpulse{0%,100%{box-shadow:0 0 0 0 rgba(91,197,138,.7)}50%{box-shadow:0 0 0 6px rgba(91,197,138,0)}}
+.turb-hint{display:flex;gap:9px;align-items:center;margin-top:14px;font-size:13px;color:rgba(255,255,255,.62)}
+.turb-hint svg{width:15px;height:15px;color:var(--accent);flex-shrink:0}
+
+@media (max-width:1000px){
+  .turb-sec{--hx:50%;--hy:31%;--D:clamp(620px,128vmax,1500px)}
+  .turb-in{padding:96px 0 40px;justify-content:flex-end;gap:40vh}
+  .turb-top{position:absolute;top:96px;left:0;right:0;padding:0 28px}
+  .turb-btm{flex-direction:column;align-items:flex-start;gap:24px}
+  .tp-side{align-items:flex-start;width:100%}
+  .tp-nav{width:100%}
+  .node{height:44px}.node b{width:42px;height:42px;font-size:13px}
+  .node .nm{font-size:13.5px}
+  .node:not(.on){display:none}
+}
+@media (max-width:560px){
+  .turb-sec{--hy:46%;--D:clamp(540px,150vmax,1200px)}
+  .tp h3{font-size:2.15rem}
+  .turb-in{gap:34vh;padding-bottom:32px}
+  .counter{font-size:11.5px;padding:7px 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .turb-bg{transition:opacity .2s}
+  .blade.lit .sheen,.turb-sec.pulsing .pulse{animation:none}
+  .tp.enter h3 .w i,.tp.enter .tp-meta span,.tp.enter p{transform:none;opacity:1}
+}
+
+
+   TURBINE CSS END <<< */
+
+/* policies */
+.pol{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pol article{padding:30px 28px;display:flex;flex-direction:column;gap:12px;transition:transform .3s var(--ease),border-color .3s var(--ease)}
+.pol article:hover{transform:translateY(-6px);border-color:var(--accent)}
+.pol .doc{width:46px;height:56px;border-radius:6px;border:1.5px solid var(--accent);position:relative;display:grid;place-items:end;padding:6px}
+.pol .doc::before{content:"";position:absolute;right:-1.5px;top:-1.5px;width:14px;height:14px;background:var(--bg);border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);border-radius:0 0 0 4px}
+.pol .doc span{font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--accent)}
+.pol h3{font-size:20px;font-weight:600;letter-spacing:-.015em}
+.pol .s{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:-6px}
+.pol p{color:var(--ink-2);font-size:15px;flex:1}
+
+/* method */
+.steps{display:grid;gap:0;position:relative;max-width:820px}
+.steps::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;background:var(--rule)}
+.steps::after{content:"";position:absolute;left:11px;top:14px;width:2px;height:0;background:var(--accent);box-shadow:0 0 14px var(--accent);transition:height 1.8s var(--ease)}
+.steps.drawn::after{height:calc(100% - 28px)}
+.steps article{display:grid;grid-template-columns:24px 1fr;gap:26px;padding:0 0 44px;position:relative}
+.steps article:last-child{padding-bottom:0}
+.steps article::before{content:"";width:24px;height:24px;border-radius:50%;background:var(--bg);border:2px solid var(--rule);margin-top:2px;transition:all .3s var(--ease)}
+.steps.drawn article::before{border-color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.steps .n{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.steps h3{font-size:24px;font-weight:600;letter-spacing:-.02em;margin:8px 0 8px}
+.steps p{color:var(--ink-2);font-size:16px;max-width:56ch}
+
+/* team, quote */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.person{padding:22px 24px;display:flex;gap:16px;align-items:center}
+.avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-weight:600;font-size:16px;background:var(--accent);color:var(--accent-ink)}
+.person h3{font-size:17px;font-weight:600}
+.person .role{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:3px 0 5px}
+.person p{font-size:14px;color:var(--ink-2)}
+.quote{padding:56px 60px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.quote .qm{font-size:120px;line-height:.6;color:var(--accent);font-weight:600}
+.quote blockquote{margin:0;font-size:clamp(1.4rem,2.8vw,2.1rem);font-weight:500;line-height:1.3;letter-spacing:-.02em;max-width:40ch}
+.quote .attr{margin-top:20px;font-size:14px;color:var(--ink-3)}
+.quote .attr b{color:var(--accent)}
+
+/* career */
+.career{position:relative;background:url(img/vessel-cable.jpg) center/cover;padding:120px 0;color:#fff}
+.career::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(6,17,26,.94),rgba(6,17,26,.7))}
+.career .wrap{position:relative}
+.career h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:600;letter-spacing:-.035em;margin:14px 0 16px;line-height:1.02}
+.career .lede{opacity:.8;max-width:56ch;font-size:16.5px;margin-bottom:36px}
+.cr3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+.cr3 div{padding:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius)}
+.cr3 h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.cr3 p{font-size:14.5px;opacity:.78}
+.career .btn-c{background:#fff;color:#0B1C26;border-color:#fff}
+
+/* insights, faq, cta */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.news article{padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .3s var(--ease),border-color .3s var(--ease)}
+.news article:hover{transform:translateY(-6px);border-color:var(--accent)}
+.news .m{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.news h3{font-size:20px;font-weight:600;letter-spacing:-.015em}
+.news p{font-size:15px;color:var(--ink-2);flex:1}
+.news a{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.news a:hover{color:var(--accent)}
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;cursor:pointer;list-style:none;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{width:28px;height:28px;border-radius:50%;border:1px solid var(--rule);flex-shrink:0;display:grid;place-items:center;font-size:20px;color:var(--accent);transition:transform .3s var(--ease),background .3s}
+.faq details[open] summary .pm{transform:rotate(45deg);background:var(--accent-soft)}
+.faq .ans{padding:0 0 22px;color:var(--ink-2);font-size:15.5px;max-width:64ch}
+.band{position:relative;border-radius:var(--radius);padding:72px 60px;overflow:hidden;text-align:center;background:linear-gradient(135deg,var(--accent),#1B5E8A)}
+html[data-theme="dark"] .band{background:linear-gradient(135deg,#0F3A3A,#0C2A44)}
+.band::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--accent);opacity:.35;filter:blur(90px);left:-120px;top:-200px}
+.band>*{position:relative;z-index:1}
+.band h2{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:600;letter-spacing:-.035em;color:#fff;max-width:20ch;margin:0 auto 16px;line-height:1.02}
+.band p{color:rgba(255,255,255,.8);max-width:50ch;margin:0 auto 30px;font-size:16.5px}
+.band .btn{background:#fff;color:#0B1C26;border-color:#fff}
+.mini-cta{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 32px;margin-top:40px}
+.mini-cta h3{font-size:22px;font-weight:600;letter-spacing:-.02em}
+
+/* contact + location */
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:start}
+.contact h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:600;letter-spacing:-.035em;margin:14px 0 16px;line-height:1.02}
+.cdl{display:grid;margin:28px 0 0;gap:12px}
+.cdl div{display:flex;justify-content:space-between;gap:18px;padding:14px 18px;border-radius:var(--radius-s);background:var(--surface-2)}
+.cdl dt{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.cdl dd{margin:0;font-size:15px;text-align:right}
+.cdl a{color:var(--accent);text-decoration:none}
+.card{padding:32px}
+.f3{display:grid;grid-template-columns:.9fr 1.4fr;gap:16px}
+.loc{margin-top:64px}
+.loc .map-wrap{height:420px;margin-top:24px}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);display:grid;place-items:center;padding:0;color:var(--ink-2);transition:all .2s var(--ease)}
+.social a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.social svg{width:17px;height:17px}
+
+/* footer */
+footer{padding:80px 0 30px;border-top:1px solid var(--rule-soft)}
+.f-mark{font-size:clamp(3rem,9vw,8rem);font-weight:600;letter-spacing:-.05em;line-height:.9;margin-bottom:56px;background:linear-gradient(90deg,var(--ink),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid var(--rule-soft)}
+footer h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:16px}
+footer a{color:var(--ink-2);text-decoration:none;font-size:15px;display:block;padding:5px 0}
+footer a:hover{color:var(--accent)}
+footer .social a{display:grid;padding:0}
+.legal{font-size:13.5px;line-height:1.9;color:var(--ink-3)}
+.legal b{color:var(--ink);font-weight:600}
+.f-btm{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-size:13px;color:var(--ink-3)}
+.f-btm button{background:none;border:0;color:var(--accent);cursor:pointer;font-size:13px;text-decoration:underline;text-underline-offset:3px;padding:0}
+
+@media (max-width:1000px){
+  .f-grid{grid-template-columns:1fr 1fr}.news,.pol,.cr3{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}
+  .why,.am{grid-template-columns:1fr;gap:28px}.partners{grid-template-columns:1fr 1fr}
+  .turb-grid{grid-template-columns:1fr;gap:56px}.turb{max-width:360px}
+}
+@media (max-width:900px){
+  nav.main,.tools .lang{display:none}.burger{display:block}
+  .hero{min-height:78vh;padding-bottom:48px}.hero-foot{flex-direction:column;align-items:flex-start;gap:20px}.hero-foot .mini{gap:24px}
+  .svc,.team{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.contact{grid-template-columns:1fr}
+  .quote{grid-template-columns:1fr;padding:36px 28px}.quote .qm{display:none}
+  .band{padding:52px 28px}section{padding:76px 0}.svc-band,.stat-band,.career{padding:80px 0}
+  .mini-cta{flex-direction:column;align-items:flex-start}
+  .tip{font-size:12.5px;padding:7px 11px 7px 8px}.tp-bd{padding:6px 22px 24px}.f3{grid-template-columns:1fr}
+}
+@media (max-width:560px){.stats,.f-grid,.partners{grid-template-columns:1fr}.hero h1{font-size:2.9rem}.turb{max-width:300px}.tip{font-size:11.5px;gap:6px}.tip b{width:20px;height:20px}}
+@media (prefers-reduced-motion:reduce){#rotor{transition:none}.turb-bg,.hub,.hero-bg{animation:none}}
+</style>
+</head>
+<body data-design="4">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="prog" id="prog"></div>
+<div class="ribbon">Design concept for <b>Energy Experts BV</b> &middot; placeholder content &middot; not a live site</div>
+<header id="hdr"><div class="wrap bar">
+  <a class="brand" href="#top"><span class="brand-mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke-linejoin="round"/></svg></span><strong>Energy Experts</strong></a>
+  <nav class="main" aria-label="Main">
+<a href="#services" data-i18n="nav1">Services</a><a href="#sectors" data-i18n="nav6">Sectors</a>
+<a href="#projects" data-i18n="nav2">Projects</a><a href="#approach" data-i18n="nav3">Approach</a>
+<a href="#about" data-i18n="nav4">About</a><a href="#contact" data-i18n="nav5">Contact</a>
+</nav>
+  <div class="tools">
+<div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="es">ES</button></div>
+<button class="icon-btn" id="theme" aria-label="Toggle dark mode">
+<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4" stroke-linecap="round"/></svg>
+<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" stroke-linejoin="round"/></svg>
+</button>
+<button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i></button>
+</div>
+</div></header>
+
+<main id="main"><a id="top"></a>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <span class="lbl" style="display:block;margin-bottom:22px;animation:up 1s var(--ease) .1s both" data-i18n="heroEyebrow">Independent energy engineering · Belgium</span>
+    <h1><span data-i18n="h1v4a">Verified at sea.</span><br><em data-i18n="h1v4b">Certified on land.</em></h1>
+    <p class="lede" data-i18n="ledeShort">Independent electrical design, classification and inspection. Belgium, France, Spain.</p>
+    <div class="cta-row"><a class="btn btn-c" href="#contact" data-i18n="getInTouch">Get in touch</a><a class="btn btn-b" href="#projects" data-i18n="ctaB">See our work</a></div>
+    <div class="hero-foot">
+      <div class="mini"><div><b>240+</b><span data-i18n="k1">Inspections completed</span></div><div><b>1.4 GW</b><span data-i18n="k2">Capacity assessed</span></div><div><b>4</b><span data-i18n="k3">Countries</span></div></div>
+      <div class="scroll"><span data-i18n="scrollHint">Scroll</span><i></i></div>
+    </div>
+  </div>
+  <span class="cap" data-i18n="cap6">Offshore substation, Bligh Bank</span>
+</section>
+
+<div class="marq"><div class="marq-in">
+  <span>AREI / RGIE</span><span>IEC 61400-4</span><span>IEC 62446-1</span><span>EN 50110</span><span>ISO 9001</span><span>VCA / LSC</span><span>BelAC</span><span>GWO BST</span>
+  <span>AREI / RGIE</span><span>IEC 61400-4</span><span>IEC 62446-1</span><span>EN 50110</span><span>ISO 9001</span><span>VCA / LSC</span><span>BelAC</span><span>GWO BST</span>
+</div></div>
+
+<section id="about" style="padding-bottom:40px"><div class="wrap"><div class="am">
+  <article class="glass rv"><span class="lbl" data-i18n="abH3">About Energy Experts</span><h3 data-i18n="abH2">Engineers, not auditors.</h3>
+    <p data-i18n="abP1">We are a small Belgian practice of chartered electrical engineers working across North Sea wind, industrial power and utility-scale solar. Every assignment is carried out by the engineer who signs the report.</p>
+    <p data-i18n="abP2">Independence is the product. We hold no supplier relationships and we install nothing, so our findings answer to the standard and to you.</p></article>
+  <article class="glass mission rv rv-d1"><span class="lbl" data-i18n="msH">Our mission</span><h3 data-i18n="msP">To make every installation we touch safer, simpler to certify and cheaper to insure — by putting an independent engineer between the contractor and the sign-off.</h3>
+    <a class="tlink" href="#approach"><span data-i18n="moreInfo">More information</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+</div></div></section>
+
+<div id="services" class="svc-band"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="svcEyebrow">Services</span><h2 data-i18n="svcH2">Three disciplines, one dossier</h2></div><p class="sub" data-i18n="svcSub">Every assignment ends in a conformity file your inspection body and your insurer will accept.</p></div>
+  <div class="svc">
+    <article class="glass rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke-linejoin="round"/></svg></div><h3 data-i18n="s1h">Electrical design &amp; classification</h3><p data-i18n="s1p">Design review, conformity assessment and zone classification for LV and HV installations under AREI/RGIE.</p><ul><li data-i18n="s1a">Single-line diagram review</li><li data-i18n="s1b">Protection coordination study</li><li data-i18n="s1c">Technical dossier preparation</li></ul><a class="btn btn-b" href="#contact" data-i18n="moreInfo">More information</a></article>
+    <article class="glass rv rv-d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="11" r="1.6"/><path d="M12 9.4V3M13.4 11.8l5.4 3.2M10.6 11.8 5.2 15M12 21v-6" stroke-linecap="round"/></svg></div><h3 data-i18n="s2h">Offshore wind</h3><p data-i18n="s2p">Commissioning support, electrical inspection and QA/QC witness for turbines, array cables and offshore substations.</p><ul><li data-i18n="s2a">Array cable termination witness</li><li data-i18n="s2b">HV commissioning support</li><li data-i18n="s2c">Punch list close-out</li></ul><a class="btn btn-b" href="#contact" data-i18n="moreInfo">More information</a></article>
+    <article class="glass rv rv-d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="11" rx="1"/><path d="M3 9.7h18M9.4 5 8 16M14.6 5 16 16M9 20h6M12 16v4" stroke-linecap="round"/></svg></div><h3 data-i18n="s3h">Solar PV inspection</h3><p data-i18n="s3p">Thermographic survey, string and insulation testing, and IEC 62446 commissioning reports for rooftop and utility-scale arrays.</p><ul><li data-i18n="s3a">Drone and handheld thermography</li><li data-i18n="s3b">String I-V curve tracing</li><li data-i18n="s3c">Yield underperformance analysis</li></ul><a class="btn btn-b" href="#contact" data-i18n="moreInfo">More information</a></article>
+  </div>
+</div></div>
+
+<section style="padding-top:30px"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="ptH">Partners who trust us</span><h2 data-i18n="ptSub">Developers, grid operators and EPC contractors across the Benelux, France and Spain.</h2></div></div>
+  <div class="partners rv">
+    <div class="logo glass">Elia<small>Grid operator</small></div><div class="logo glass">Parkwind<small>Developer</small></div>
+    <div class="logo glass">Otary<small>Developer</small></div><div class="logo glass">DEME<small>Offshore EPC</small></div>
+    <div class="logo glass">Jan De Nul<small>Marine contractor</small></div><div class="logo glass">ENGIE<small>Utility</small></div>
+    <div class="logo glass">TenneT<small>Grid operator</small></div><div class="logo glass">Iberdrola<small>Utility</small></div>
+  </div>
+</div></section>
+
+<section id="why" style="padding-top:20px"><div class="wrap"><div class="why">
+  <div class="rv"><span class="lbl" data-i18n="whH">Why Energy Experts</span><h2 data-i18n="whSub">Three things we will not compromise on.</h2>
+    <a class="btn btn-b" href="#certs" data-i18n="certBtn">Our certifications</a></div>
+  <div class="pts rv rv-d1">
+    <div class="pt glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4Z" stroke-linejoin="round"/></svg></div><div><h3 data-i18n="wh1h">Independent by design</h3><p data-i18n="wh1p">We install nothing and sell nothing. Our only product is the finding.</p></div></div>
+    <div class="pt glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" stroke-linejoin="round"/></svg></div><div><h3 data-i18n="wh2h">Engineer-signed</h3><p data-i18n="wh2p">The engineer on site is the engineer who signs. No hand-offs, no juniors.</p></div></div>
+    <div class="pt glass"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><div><h3 data-i18n="wh3h">Four languages, one standard</h3><p data-i18n="wh3p">Reports in the language of your inspection body — NL, FR, EN or ES.</p></div></div>
+  </div>
+</div></div></section>
+
+<div class="stat-band"><div class="wrap">
+  <div class="stats rv" id="stats">
+    <div class="glass"><div class="v" data-count="240" data-suffix="+">240<span class="u">+</span></div><div class="k" data-i18n="k1">Inspections completed</div></div>
+    <div class="glass"><div class="v" data-count="1.4" data-suffix=" GW">1.4<span class="u"> GW</span></div><div class="k" data-i18n="k2">Capacity assessed</div></div>
+    <div class="glass"><div class="v" data-count="4">4</div><div class="k" data-i18n="k3">Countries</div></div>
+    <div class="glass"><div class="v" data-count="10" data-suffix=" yrs">10<span class="u"> yrs</span></div><div class="k" data-i18n="k4">In practice</div></div>
+  </div>
+</div></div>
+
+<section id="sectors"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="secEyebrow">Sectors</span><h2 data-i18n="secH2">Where we work</h2></div><p class="sub" data-i18n="secSub">Four environments, each with its own rulebook and its own failure modes.</p></div>
+  <div class="tiles">
+    <a class="tile rv" href="#projects"><div class="bg" style="background-image:url(img/wind-thornton.jpg)"></div><div><span class="n">01</span><h3 data-i18n="x1h">Offshore &amp; marine</h3><p data-i18n="x1p">Wind farms, export cables and offshore substations in the Belgian and Dutch North Sea.</p></div></a>
+    <a class="tile rv rv-d1" href="#projects"><div class="bg" style="background-image:url(img/solar-nottuln.jpg)"></div><div><span class="n">02</span><h3 data-i18n="x2h">Utility-scale solar</h3><p data-i18n="x2p">Ground-mount parks from 1 MWp upward across France, Spain and the Benelux.</p></div></a>
+    <a class="tile rv" href="#projects"><div class="bg" style="background-image:url(img/hv-switchgear-1.jpg)"></div><div><span class="n">03</span><h3 data-i18n="x3h">Industry &amp; logistics</h3><p data-i18n="x3p">Distribution boards, transformer rooms and HV cabins in plants and warehouses.</p></div></a>
+    <a class="tile rv rv-d1" href="#projects"><div class="bg" style="background-image:url(img/oss-rampion.jpg)"></div><div><span class="n">04</span><h3 data-i18n="x4h">Grid &amp; substations</h3><p data-i18n="x4p">Connection studies and conformity classification up to 150 kV.</p></div></a>
+  </div>
+</div></section>
+
+<section id="projects" style="padding-top:0"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="prjEyebrow">Project register</span><h2 data-i18n="prjH2">Recent assignments</h2></div><p class="sub" data-i18n="prjSub">Select any row to open the full scope and technical summary.</p></div>
+  <div class="strip-wrap" id="prjList"></div>
+  <template id="prjTpl"><article class="pcard" role="button" aria-haspopup="dialog"><div class="bg" data-f="img"></div><div><span class="tag" data-f="tag"></span><h3 data-f="name"></h3><div class="meta"><span data-f="loc"></span><b data-f="cap"></b></div></div></article></template>
+  <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="regNote">Sample entries — you add, edit and remove these yourself, without a developer.</span></div>
+</div></section>
+
+<!-- TURBINE STAGE MARKUP - DISABLED. It is parked in the inert block below
+     (type="text/plain" means the browser never renders or runs it).
+     To restore: unwrap it from the script tags and delete the #projects strip above.
+     It cannot be wrapped in an ordinary HTML comment because it contains double hyphens. -->
+<script type="text/plain" id="turbine-markup-disabled">
+<!-- ===== TURBINE PROJECT STAGE ===== -->
+<section id="projects" class="turb-sec">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="bladeFill" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EAF2F4" stop-opacity=".30"/>
+      <stop offset="45%" stop-color="#BFD8DE" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#8FB3BC" stop-opacity=".05"/></linearGradient>
+    <linearGradient id="bladeFillOn" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3FD0C9" stop-opacity=".46"/>
+      <stop offset="50%" stop-color="#3FD0C9" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#EAF2F4" stop-opacity=".06"/></linearGradient>
+    <linearGradient id="sheenFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="towerFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BFD8DE" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#BFD8DE" stop-opacity="0"/></linearGradient>
+    <clipPath id="bclip"><path d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></clipPath>
+  </defs></svg>
+
+  <div class="turb-bgs"><div class="turb-bg" id="bgA"></div><div class="turb-bg" id="bgB"></div></div>
+  <div class="turb-scrim"></div>
+
+  <div class="rotor-pos">
+    <svg class="rotor" id="rotor" viewBox="-500 -500 1000 1000" aria-hidden="true">
+      <rect class="tower" x="-9" y="0" width="18" height="480"/>
+      <g class="ghosts">
+        <g transform="rotate(-7)"><g class="bl"><path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></g>
+          <g transform="rotate(120)"><path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></g>
+          <g transform="rotate(240)"><path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></g></g>
+        <g transform="rotate(-15)"><g><path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></g>
+          <g transform="rotate(120)"><path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></g>
+          <g transform="rotate(240)"><path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/></g></g>
+      </g>
+      <g class="blade" data-slot="0" role="button" tabindex="0">
+        <path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/>
+        <path class="edge" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38"/>
+        <g clip-path="url(#bclip)"><rect class="sheen" x="-40" y="-420" width="80" height="150"/></g>
+      </g>
+      <g class="blade" data-slot="1" transform="rotate(120)" role="button" tabindex="0">
+        <path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/>
+        <path class="edge" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38"/>
+        <g clip-path="url(#bclip)"><rect class="sheen" x="-40" y="-420" width="80" height="150"/></g>
+      </g>
+      <g class="blade" data-slot="2" transform="rotate(240)" role="button" tabindex="0">
+        <path class="body" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38 2-2 4-2 5 2 2 26 6 116 9 166 4 70 10 140 11 180 0 30-6 70-11 100-5 6-17 6-22 0Z"/>
+        <path class="edge" d="M-11-20C-24-55-30-95-30-120c1-70 8-200 18-310 4-25 7-35 9-38"/>
+        <g clip-path="url(#bclip)"><rect class="sheen" x="-40" y="-420" width="80" height="150"/></g>
+      </g>
+      <circle class="pulse" cx="0" cy="0" r="34"/>
+      <circle class="hub-r" cx="0" cy="0" r="34"/>
+      <circle class="hub-d" cx="0" cy="0" r="24"/>
+      <circle class="hub-c" cx="0" cy="0" r="9"/>
+    </svg>
+  </div>
+
+  <button class="node on" data-slot="0"><b>01</b><span class="nm"></span></button>
+  <button class="node" data-slot="1"><b>02</b><span class="nm"></span></button>
+  <button class="node" data-slot="2"><b>03</b><span class="nm"></span></button>
+
+  <div class="wrap turb-in">
+    <div class="turb-top">
+      <div><span class="lbl" data-i18n="prjRef">Project references</span><h2 data-i18n="prjH2">Recent assignments</h2><p class="turb-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12l4.2-.9a2 2 0 0 1 2.4 2l-.7 4.4A3 3 0 0 1 14 20h-2.5a4 4 0 0 1-3.2-1.6L5 14.5a1.4 1.4 0 0 1 2-2L8 13Z" stroke-linejoin="round"/></svg><span data-i18n="tbHint">Tap a blade to open a project</span></p></div>
+      <span class="counter" id="tpIdx">01 / 06</span>
+    </div>
+    <div class="turb-btm">
+      <div class="tp" id="tp">
+        <span class="tag" id="tpTag"></span>
+        <h3 id="tpName"></h3>
+        <div class="tp-meta"><span id="tpLoc"></span><span><b id="tpCap"></b></span><span id="tpYear"></span><span id="tpScope"></span></div>
+        <p id="tpDesc"></p>
+        <div class="tp-act">
+          <button class="btn btn-c" id="tpOpen" data-i18n="tbOpen">Open case file</button>
+          <a class="btn btn-b" href="#contact" style="border-color:rgba(255,255,255,.35);color:#fff" data-i18n="ctaSmall">Get in touch</a>
+        </div>
+      </div>
+      <div class="tp-side">
+        <div class="tp-nav">
+          <button id="tpPrev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="tpNext" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="tp-dots" id="tpDots"></div>
+        <div class="tp-auto" id="tpAuto"><i></i><span data-i18n="tbAuto">Rotates on its own · hover or tap to pause</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</script>
+
+<section style="padding-top:96px"><div class="wrap"><div class="mini-cta glass rv"><h3 data-i18n="prjMore">Find out more about our projects.</h3><a class="btn btn-c" href="#contact" data-i18n="ctaSmall">Get in touch</a></div></div></section>
+
+<section id="policies" style="padding-top:0"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="certH">Accreditations</span><h2 data-i18n="polH">Our guidelines for responsibility and integrity</h2></div><p class="sub" data-i18n="polSub">Three documents every client, partner and employee can hold us to.</p></div>
+  <div class="pol">
+    <article class="glass rv"><div class="doc"><span>PDF</span></div><h3 data-i18n="pol1h">HSE policy</h3><div class="s" data-i18n="pol1s">Health, Safety &amp; Environment</div><p data-i18n="pol1p">How we plan, work and report on site so that nobody gets hurt and nothing is spilled.</p><a class="tlink" href="#"><span data-i18n="polDl">Download PDF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12M6 10l6 6 6-6M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+    <article class="glass rv rv-d1"><div class="doc"><span>PDF</span></div><h3 data-i18n="pol2h">Human rights policy</h3><div class="s" data-i18n="pol2s">Labour &amp; supply chain</div><p data-i18n="pol2p">Our commitments on labour, equal treatment and the supply chain, aligned with the UN Guiding Principles.</p><a class="tlink" href="#"><span data-i18n="polDl">Download PDF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12M6 10l6 6 6-6M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+    <article class="glass rv rv-d2"><div class="doc"><span>PDF</span></div><h3 data-i18n="pol3h">Code of conduct</h3><div class="s" data-i18n="pol3s">Independence &amp; anti-corruption</div><p data-i18n="pol3p">Independence, confidentiality and anti-corruption rules that every engineer signs on their first day.</p><a class="tlink" href="#"><span data-i18n="polDl">Download PDF</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12M6 10l6 6 6-6M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+  </div>
+  <div id="certs" class="tp-meta rv" style="margin-top:28px;justify-content:center"><span data-i18n="cert1">BelAC-recognised inspection partner</span><span data-i18n="cert2">VCA / LSC safety certified</span><span data-i18n="cert3">ISO 9001 quality management</span><span data-i18n="cert4">GWO Basic Safety Training, offshore</span></div>
+</div></section>
+
+<section id="approach" style="padding-top:0"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="appEyebrow">Method</span><h2 data-i18n="appH2">How an assignment runs</h2></div><p class="sub" data-i18n="appSub">Four stages, from first drawing to a cleared installation.</p></div>
+  <div class="steps" id="steps">
+    <article><div><div class="n" data-i18n="n1">Stage 01</div><h3 data-i18n="a1h">Intake</h3><p data-i18n="a1p">We collect single-line diagrams, protection settings and as-built documentation before anyone mobilises.</p></div></article>
+    <article><div><div class="n" data-i18n="n2">Stage 02</div><h3 data-i18n="a2h">Field measurement</h3><p data-i18n="a2p">On site: insulation resistance, earthing continuity, thermography and torque verification.</p></div></article>
+    <article><div><div class="n" data-i18n="n3">Stage 03</div><h3 data-i18n="a3h">Conformity dossier</h3><p data-i18n="a3p">Findings compiled into a report written to be accepted first time by your inspection body.</p></div></article>
+    <article><div><div class="n" data-i18n="n4">Stage 04</div><h3 data-i18n="a4h">Clearance</h3><p data-i18n="a4p">Remediation advice and re-inspection until the installation is signed off.</p></div></article>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="quote glass rv" style="margin-bottom:20px"><div class="qm">“</div>
+    <div><blockquote data-i18n="qT">They found a protection setting error two other parties had signed off. The report was accepted by our inspection body without a single query.</blockquote>
+      <div class="attr"><b data-i18n="qN">Project director</b> · <span data-i18n="qC">offshore wind developer, Ostend</span></div></div></div>
+  <div class="team rv">
+    <div class="person glass"><div class="avatar">JV</div><div><h3>Jan Vermeulen</h3><div class="role" data-i18n="r1">Managing director</div><p data-i18n="b1">Chartered electrical engineer. Twenty years in HV commissioning across the North Sea.</p></div></div>
+    <div class="person glass"><div class="avatar">SD</div><div><h3>Sofie De Clerck</h3><div class="role" data-i18n="r2">Head of inspection</div><p data-i18n="b2">Leads AREI/RGIE conformity work and signs the technical dossiers.</p></div></div>
+    <div class="person glass"><div class="avatar">MR</div><div><h3>Miguel Ríos</h3><div class="role" data-i18n="r3">Solar lead, Iberia</div><p data-i18n="b3">IEC 62446 commissioning and thermographic survey across Spain and southern France.</p></div></div>
+  </div>
+</div></section>
+
+<div id="career" class="career"><div class="wrap">
+  <span class="lbl rv" data-i18n="fCareer">Careers</span><h2 class="rv" data-i18n="crH">Join the practice</h2>
+  <p class="lede rv" data-i18n="crP">We are looking for a chartered electrical engineer with HV commissioning experience, based in Belgium and comfortable working in Dutch and French.</p>
+  <div class="cr3">
+    <div class="rv"><h3 data-i18n="cr1h">Do pioneering work</h3><p data-i18n="cr1p">66 kV arrays, floating foundations, hybrid PV-storage: the installations you inspect will not be in any textbook yet.</p></div>
+    <div class="rv rv-d1"><h3 data-i18n="cr2h">International environment</h3><p data-i18n="cr2p">Belgian North Sea one week, a solar park in Aragón the next. Four working languages in the office.</p></div>
+    <div class="rv rv-d2"><h3 data-i18n="cr3h">Growth and development</h3><p data-i18n="cr3p">GWO, HV switching authorisation and chartered status — funded and scheduled from your first year.</p></div>
+  </div>
+  <a class="btn btn-c rv" href="#" data-i18n="vacancies">Vacancies</a>
+</div></div>
+
+<section><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="nwH">Insights</span><h2 data-i18n="nwSub">Notes from the field.</h2></div><a class="btn btn-b" href="#" data-i18n="nwAll">All insights</a></div>
+  <div class="news">
+    <article class="glass rv"><span class="m" data-i18n="nw1m">Offshore · 6 min</span><h3 data-i18n="nw1t">Why 66 kV array cables fail at the termination</h3><p data-i18n="nw1d">Reading the tan delta curve before it becomes a warranty claim.</p><a href="#"><span data-i18n="readMore">Read</span> →</a></article>
+    <article class="glass rv rv-d1"><span class="m" data-i18n="nw2m">Regulation · 4 min</span><h3 data-i18n="nw2t">AREI/RGIE 2025: what changed for HV cabins</h3><p data-i18n="nw2d">The revised zone classification rules, explained for site managers.</p><a href="#"><span data-i18n="readMore">Read</span> →</a></article>
+    <article class="glass rv rv-d2"><span class="m" data-i18n="nw3m">Solar · 5 min</span><h3 data-i18n="nw3t">Thermography is not an inspection</h3><p data-i18n="nw3d">A hot spot is a symptom. The I-V trace tells you the cause.</p><a href="#"><span data-i18n="readMore">Read</span> →</a></article>
+  </div>
+</div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap">
+  <div class="sec-hd rv"><div><span class="lbl" data-i18n="faqEyebrow">Questions</span><h2 data-i18n="faqH2">Before you call</h2></div></div>
+  <div class="faq rv">
+    <details><summary><span data-i18n="q1">How quickly can you mobilise?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an1">For installations in Belgium, typically within five working days. Offshore assignments are planned around the vessel window and are agreed in advance.</div></details>
+    <details><summary><span data-i18n="q2">Do you issue the official certificate?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an2">No, and that is deliberate. We prepare the conformity dossier and correct the findings so that the accredited inspection body can certify without objection. Keeping those roles separate is what makes the file credible.</div></details>
+    <details><summary><span data-i18n="q3">Which languages do you report in?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an3">Dutch, French, English and Spanish. The report is delivered in the language your inspection body works in.</div></details>
+    <details><summary><span data-i18n="q4">Do you work outside Belgium?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an4">Regularly. Roughly half our solar work is in France and Spain, and offshore assignments cover the Belgian and Dutch North Sea.</div></details>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap"><div class="band rv">
+  <h2 data-i18n="cta2H">Ready for your next project?</h2>
+  <p data-i18n="cta2P">One call is enough to scope it. We will tell you honestly whether you need us.</p>
+  <a class="btn" href="#contact" data-i18n="ctaBtn">Start an enquiry</a>
+</div></div></section>
+
+<section id="contact" style="padding-top:0"><div class="wrap">
+  <div class="contact">
+    <div class="rv"><span class="lbl" data-i18n="ctEyebrow">Contact</span><h2 data-i18n="ctH2">Tell us about the installation.</h2>
+      <p style="color:var(--ink-2)" data-i18n="ctP">Send the basics and we will come back within two working days with a scope and a price.</p>
+      <dl class="cdl">
+        <div><dt data-i18n="c1">Office</dt><dd>Albrecht Rodenbachlaan 29<br>1850 Grimbergen, BE</dd></div>
+        <div><dt data-i18n="c2">Telephone</dt><dd><a href="tel:+32472184220">+32 472 18 42 20</a></dd></div>
+        <div><dt data-i18n="c3">Email</dt><dd><a href="mailto:info@energyexpertsbv.com">info@energyexpertsbv.com</a></dd></div>
+        <div><dt data-i18n="c4">Hours</dt><dd data-i18n="c4v">Mon–Fri, 08:00–17:00 CET</dd></div>
+      </dl>
+      <span class="lbl" style="display:block;margin-top:26px" data-i18n="fSocial">Follow us</span>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5.1c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8v3h2.6v7z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="card glass rv rv-d1">
+      <form id="enq" novalidate>
+        <div class="f2">
+          <div><label for="fn" data-i18n="fFirst">First name</label><input id="fn" type="text" required autocomplete="given-name"></div>
+          <div><label for="fl" data-i18n="fLast">Last name</label><input id="fl" type="text" autocomplete="family-name"></div>
+        </div>
+        <div class="f2">
+          <div><label for="fc" data-i18n="f2">Company</label><input id="fc" type="text" autocomplete="organization"></div>
+          <div><label for="fe" data-i18n="f3">Email</label><input id="fe" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="f3">
+          <div><label for="fcc" data-i18n="fCountry">Country code</label><select id="fcc">
+            <option value="+32" selected>🇧🇪 Belgium +32</option><option value="+31">🇳🇱 Netherlands +31</option><option value="+33">🇫🇷 France +33</option>
+            <option value="+34">🇪🇸 Spain +34</option><option value="+49">🇩🇪 Germany +49</option><option value="+352">🇱🇺 Luxembourg +352</option>
+            <option value="+44">🇬🇧 United Kingdom +44</option><option value="+45">🇩🇰 Denmark +45</option><option value="+47">🇳🇴 Norway +47</option>
+            <option value="+46">🇸🇪 Sweden +46</option><option value="+351">🇵🇹 Portugal +351</option><option value="+39">🇮🇹 Italy +39</option>
+            <option value="+353">🇮🇪 Ireland +353</option><option value="+48">🇵🇱 Poland +48</option><option value="+43">🇦🇹 Austria +43</option><option value="+41">🇨🇭 Switzerland +41</option></select></div>
+          <div><label for="fp" data-i18n="fPhone">Phone number</label><input id="fp" type="tel" autocomplete="tel-national"></div>
+        </div>
+        <div><label for="fs" data-i18n="f4">Service</label><select id="fs"><option data-i18n="o1">Electrical classification</option><option data-i18n="o2">Offshore wind</option><option data-i18n="o3">Solar PV inspection</option><option data-i18n="o4">Something else</option></select></div>
+        <div><label for="fm" data-i18n="f5">Describe the installation</label><textarea id="fm" required></textarea></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" required><span data-i18n="f6">I agree that Energy Experts BV may store and use these details to answer my enquiry, as described in the privacy policy.</span></label>
+        <button class="btn btn-c" type="submit" data-i18n="f7">Send enquiry</button>
+        <p class="form-note" id="fnote" data-i18n="f8">Demo form — nothing is sent</p>
+      </form>
+    </div>
+  </div>
+  <div class="loc rv"><span class="lbl" data-i18n="locH">Location of our team</span><div class="map-wrap rv">
+  <div id="map"></div>
+  <div class="map-gate" id="mapGate">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <h4 data-i18n="mapH">Map not loaded</h4>
+    <p data-i18n="mapP">The map is served by OpenStreetMap, which receives your IP address. It loads only if you allow it.</p>
+    <button class="btn btn-c" id="mapLoad" data-i18n="mapB">Load the map</button>
+  </div>
+</div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="f-mark rv">Energy Experts</div>
+  <div class="f-grid"><div><div class="legal"><b>Energy Experts BV</b><br>Albrecht Rodenbachlaan 29, 1850 Grimbergen<br>
+<span data-i18n="fEnt">Enterprise no.</span> BE 0XXX.XXX.XXX &middot; <span data-i18n="fVat">VAT</span> BE 0XXX.XXX.XXX &middot; RPR Brussel</div>
+      <div class="social"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.5-1.5h1.5V5.1c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8v3h2.6v7z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></div></div>
+    <div><h4 data-i18n="fNav">Site</h4><a href="#services" data-i18n="nav1b">Services</a><a href="#sectors" data-i18n="nav6b">Sectors</a><a href="#projects" data-i18n="nav2b">Projects</a><a href="#approach" data-i18n="nav3b">Approach</a></div>
+<div><h4 data-i18n="fComp">Company</h4><a href="#about" data-i18n="nav4b">About</a><a href="#faq" data-i18n="fFaq">FAQ</a><a href="#contact" data-i18n="nav5b">Contact</a><a href="#" data-i18n="fCareer">Careers</a></div>
+<div><h4 data-i18n="fLegal">Legal</h4><a href="#" data-i18n="fl1">Privacy policy</a><a href="#" data-i18n="fl3">Terms &amp; conditions</a><a href="#" data-i18n="fl4">Complaints</a><a href="img/CREDITS.txt" data-i18n="photoCredits">Photo credits</a></div></div>
+  <div class="f-btm"><span>&copy; 2026 Energy Experts BV</span>
+<span><button id="ckOpen" data-i18n="fCk">Cookie settings</button> &middot; <span data-i18n="fBtm">Design concept &middot; placeholder content</span></span></div>
+</div></footer>
+<!-- ===== DRAWER ===== -->
+<div class="drawer" id="drawer">
+  <a href="#services"><span data-i18n="nav1">Services</span><span>01</span></a>
+  <a href="#sectors"><span data-i18n="nav6">Sectors</span><span>02</span></a>
+  <a href="#projects"><span data-i18n="nav2">Projects</span><span>03</span></a>
+  <a href="#approach"><span data-i18n="nav3">Approach</span><span>04</span></a>
+  <a href="#about"><span data-i18n="nav4">About</span><span>05</span></a>
+  <a href="#contact"><span data-i18n="nav5">Contact</span><span>06</span></a>
+  <div class="d-foot">
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="es">ES</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COOKIE BANNER ===== -->
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <h3 data-i18n="ckH">We keep this simple</h3>
+  <p data-i18n="ckP">This site sets no tracking cookies. We only ask before loading the map, which is served by OpenStreetMap and would receive your IP address. Read the <a href="#">privacy policy</a>.</p>
+  <div class="cookie-btns">
+    <button class="btn btn-a" id="ckAll" data-i18n="ckAll">Accept all</button>
+    <button class="btn btn-b" id="ckNone" data-i18n="ckNone">Reject all</button>
+  </div>
+  <button class="lnk" id="ckCust" data-i18n="ckCust">Choose what loads</button>
+</div>
+
+<!-- ===== COOKIE PREFERENCES ===== -->
+<div class="ov" id="prefs" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+  <div class="ov-bd" data-close="prefs"></div>
+  <div class="ov-cd prefs-cd">
+    <h3 data-i18n="pfH">What loads on this site</h3>
+    <p data-i18n="pfP">Nothing in the second and third group loads until you switch it on. You can change this at any time from the footer.</p>
+    <div class="cat"><div><h4 data-i18n="pf1h">Strictly necessary</h4><p data-i18n="pf1p">Your language and theme choice, stored in your browser. Never shared.</p><div class="tech">localStorage · no cookies · no transfer</div></div>
+      <label class="sw"><input type="checkbox" checked disabled aria-label="Strictly necessary"><i></i></label></div>
+    <div class="cat"><div><h4 data-i18n="pf2h">Map</h4><p data-i18n="pf2p">Loads map tiles from OpenStreetMap, which receives your IP address.</p><div class="tech">openstreetmap.org · EU · no cookie set</div></div>
+      <label class="sw"><input type="checkbox" id="cMap" aria-label="Map"><i></i></label></div>
+    <div class="cat"><div><h4 data-i18n="pf3h">Statistics</h4><p data-i18n="pf3p">Anonymous visit counts so we know which pages are read. No cookie, no personal data.</p><div class="tech">EU-hosted · cookieless · IP not stored</div></div>
+      <label class="sw"><input type="checkbox" id="cStats" aria-label="Statistics"><i></i></label></div>
+    <div class="prefs-act">
+      <button class="btn btn-a" id="pfSave" data-i18n="pfSave">Save choices</button>
+      <button class="btn btn-b" id="pfAll" data-i18n="pfAll">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROJECT MODAL ===== -->
+<div class="ov" id="modal" role="dialog" aria-modal="true" aria-label="Project detail">
+  <div class="ov-bd" data-close="modal"></div>
+  <div class="ov-cd">
+    <div class="modal-img" id="mImg"><span class="tag" id="mTag"></span>
+      <button class="modal-x" data-close="modal" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <h3 id="mName"></h3><div class="modal-loc" id="mLoc"></div>
+      <div class="modal-specs">
+        <div><div class="k" data-i18n="th3">Rating</div><div class="v" id="mCap"></div></div>
+        <div><div class="k" data-i18n="th5">Year</div><div class="v" id="mYear"></div></div>
+        <div><div class="k" data-i18n="mDur">Duration</div><div class="v" id="mDur"></div></div>
+      </div>
+      <p id="mDesc"></p>
+      <h4 data-i18n="mScope">Scope delivered</h4><ul id="mList"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>try{localStorage.setItem("ee-consent",JSON.stringify({map:true,stats:false}))}catch(e){}</script><script src="shared/content.js"></script>
+<script src="shared/app.js"></script>
+<script>
+/* >>> TURBINE SCRIPT START - DISABLED. Delete this marker line and the
+   closing one to switch the turbine back on.
+
+
+(function () {
+  "use strict";
+  var $  = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var sec = $("#projects"), rotor = $("#rotor"), pos = $(".rotor-pos");
+  var blades = $$(".blade", sec), nodes = $$(".node", sec);
+  var tp = $("#tp"), dots = $("#tpDots"), auto = $("#tpAuto");
+  var bgs = [$("#bgA"), $("#bgB")], bgLive = 0;
+
+  var N = PROJECTS.length;
+  var slotProj = [0, 1 % N, 2 % N];   
+  var focus = 0, cur = 0;
+  var angle = 0, from = 0, to = null, t0 = 0, DUR = 1250;
+  var idle = reduced ? 0 : 360 / 170;  
+  var pausedUntil = 0, inView = true, R = 0, last = performance.now();
+  var pad = function (n) { return String(n).padStart(2, "0"); };
+  var lang = function () { return window.EE.lang; };
+
+  
+  var H = 0;
+  function measure() {                       
+    var pr = pos.getBoundingClientRect(), sr = sec.getBoundingClientRect();
+    var hx = pr.left + pr.width / 2 - sr.left, hy = pr.top + pr.height / 2 - sr.top;
+    H = sr.height;
+    var guard = innerWidth < 700 ? 240 : 130;         
+    R = Math.max(110, Math.min(pr.width / 2 * 0.6,
+        Math.min(hx, sr.width - hx) - 84, hy - guard, sr.height - hy - 66));
+  }
+  measure();
+  addEventListener("resize", measure, { passive: true });
+
+  
+  function paintNodes() {
+    nodes.forEach(function (n) {
+      var s = +n.dataset.slot, p = PROJECTS[slotProj[s]];
+      n.querySelector("b").textContent = pad(slotProj[s] + 1);
+      n.querySelector(".nm").textContent = p.name;
+      n.classList.toggle("on", s === focus);
+    });
+    blades.forEach(function (b) { b.classList.toggle("on", +b.dataset.slot === focus); });
+  }
+  function words(el, text) {
+    el.innerHTML = "";
+    text.split(" ").forEach(function (w, i) {
+      var o = document.createElement("span"); o.className = "w";
+      var inner = document.createElement("i");
+      inner.textContent = w; inner.style.transitionDelay = (i * 70) + "ms";
+      o.appendChild(inner); el.appendChild(o);
+      if (i < text.split(" ").length - 1) el.appendChild(document.createTextNode(" "));
+    });
+  }
+  function paintPanel() {
+    var p = PROJECTS[cur], l = lang();
+    tp.classList.add("enter");
+    setTimeout(function () {
+      $("#tpTag").textContent = p.tag[l];
+      words($("#tpName"), p.name);
+      $("#tpLoc").textContent = p.loc[l];  $("#tpCap").textContent = p.cap;
+      $("#tpYear").textContent = p.year;   $("#tpScope").textContent = p.scope[l];
+      $("#tpDesc").textContent = p.desc[l];
+      $("#tpIdx").textContent = pad(cur + 1) + " / " + pad(N);
+      $$("button", dots).forEach(function (d, i) { d.classList.toggle("on", i === cur); });
+      
+      var next = 1 - bgLive;
+      bgs[next].style.backgroundImage = p.img ? "url(" + p.img + ")" : "";
+      bgs[next].classList.add("live");
+      bgs[bgLive].classList.remove("live");
+      bgLive = next;
+      requestAnimationFrame(function () { tp.classList.remove("enter"); });
+    }, reduced ? 0 : 30);
+  }
+
+  
+  function ease(x) { var c1 = 1.42, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
+  function pause() { pausedUntil = Date.now() + 14000; auto.classList.add("paused"); }
+
+  function activate(slot, dir) {
+    if (to !== null) return;
+    if (slot === focus) { pause(); window.EE.openProject(cur); return; }
+    pause();
+    cur = slotProj[slot];
+
+    
+    var want = -slot * 120, d = (want - angle) % 360;
+    if (dir < 0) { while (d >= -1) d -= 360; } else { while (d <= 1) d += 360; }
+    from = angle; to = angle + d; t0 = performance.now();
+    sec.classList.add("spinning", "pulsing");
+    setTimeout(function () { sec.classList.remove("pulsing"); }, 1400);
+
+    focus = slot;
+    slotProj[(slot + 1) % 3] = (cur + 1) % N;
+    slotProj[(slot + 2) % 3] = (cur + 2) % N;
+    paintNodes();
+    setTimeout(paintPanel, reduced ? 0 : 260);
+    var b = blades[slot];
+    b.classList.remove("lit"); void b.offsetWidth; b.classList.add("lit");
+  }
+  function step(delta) {
+    var wanted = ((cur + delta) % N + N) % N;
+    for (var s = 0; s < 3; s++) if (slotProj[s] === wanted) return activate(s, delta < 0 ? -1 : 1);
+    
+    var s2 = (focus + (delta < 0 ? 2 : 1)) % 3;
+    slotProj[s2] = wanted; paintNodes(); activate(s2, delta < 0 ? -1 : 1);
+  }
+
+  function frame(now) {
+    var dt = Math.min((now - last) / 1000, 0.05); last = now;
+    if (to !== null) {
+      var p = Math.min((now - t0) / DUR, 1);
+      angle = from + (to - from) * ease(p);
+      if (p >= 1) { angle = to; to = null; sec.classList.remove("spinning"); }
+    } else if (idle && inView && !document.hidden) {
+      angle += idle * dt;
+    }
+    rotor.style.transform = "rotate(" + angle + "deg)";
+    for (var i = 0; i < 3; i++) {
+      var a = (angle + i * 120 - 90) * Math.PI / 180;
+      var dy = Math.sin(a) * R;
+      nodes[i].style.transform = "translate(-50%,-50%) translate(" +
+        (Math.cos(a) * R).toFixed(1) + "px," + dy.toFixed(1) + "px)";
+      var low = dy > H * 0.14;               
+      if (low !== nodes[i]._low) { nodes[i]._low = low; nodes[i].classList.toggle("dim", low); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  
+  nodes.forEach(function (n) { n.addEventListener("click", function () { activate(+n.dataset.slot, 1); }); });
+  blades.forEach(function (b) {
+    b.addEventListener("click", function () { activate(+b.dataset.slot, 1); });
+    b.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(+b.dataset.slot, 1); }
+    });
+  });
+  $("#tpNext").addEventListener("click", function () { step(1); });
+  $("#tpPrev").addEventListener("click", function () { step(-1); });
+  $("#tpOpen").addEventListener("click", function () { pause(); window.EE.openProject(cur); });
+  for (var i = 0; i < N; i++) (function (k) {
+    var d = document.createElement("button");
+    d.setAttribute("aria-label", "Project " + (k + 1));
+    d.addEventListener("click", function () { if (k !== cur) step(((k - cur) % N + N) % N); });
+    dots.appendChild(d);
+  })(i);
+
+  ["pointerenter", "touchstart", "focusin"].forEach(function (ev) {
+    sec.addEventListener(ev, pause, { passive: true });
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) { inView = e[0].isIntersecting; }, { threshold: 0.2 }).observe(sec);
+  }
+  if (!reduced) setInterval(function () {
+    if (!inView || document.hidden || to !== null || Date.now() < pausedUntil) return;
+    auto.classList.remove("paused");
+    step(1);
+  }, 7000);
+
+  window.EE.onLang.push(paintPanel);
+  paintNodes(); paintPanel(); requestAnimationFrame(frame);
+})();
+
+   TURBINE SCRIPT END <<< */
+</script>
+</body></html>
