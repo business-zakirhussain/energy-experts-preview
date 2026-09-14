@@ -1120,3 +1120,17 @@ var NEWS = [
               nl: "Een warm punt is een symptoom. De I-V-curve geeft de oorzaak." },
    img: "img/solar-nottuln.jpg" }
 ];
+
+/* placeholder client wall — invented names, never real companies */
+Object.assign(T.en, { ptDev:"Developer", ptDev2:"Developer", ptDev3:"Developer", ptGrid:"Grid operator",
+  ptMarine:"Marine contractor", ptEpc:"Offshore EPC", ptUtil:"Utility", ptUtil2:"Utility",
+  ptSub:"Developers, grid operators and EPC contractors across the Benelux and France.",
+  ptNote:"Placeholder names — replaced with your real clients once they agree to be listed." });
+Object.assign(T.fr, { ptDev:"Développeur", ptDev2:"Développeur", ptDev3:"Développeur", ptGrid:"Gestionnaire de réseau",
+  ptMarine:"Entreprise maritime", ptEpc:"EPC offshore", ptUtil:"Énergéticien", ptUtil2:"Énergéticien",
+  ptSub:"Développeurs, gestionnaires de réseau et entreprises EPC au Benelux et en France.",
+  ptNote:"Noms fictifs — remplacés par vos vrais clients dès qu’ils acceptent d’être cités." });
+Object.assign(T.nl, { ptDev:"Ontwikkelaar", ptDev2:"Ontwikkelaar", ptDev3:"Ontwikkelaar", ptGrid:"Netbeheerder",
+  ptMarine:"Maritiem aannemer", ptEpc:"Offshore EPC", ptUtil:"Energiebedrijf", ptUtil2:"Energiebedrijf",
+  ptSub:"Ontwikkelaars, netbeheerders en EPC-aannemers in de Benelux en Frankrijk.",
+  ptNote:"Fictieve namen — vervangen door uw echte klanten zodra zij akkoord gaan om vermeld te worden." });
