@@ -1,0 +1,64 @@
+<!-- ===== DRAWER ===== -->
+<div class="drawer" id="drawer">
+  <a href="#services"><span data-i18n="nav1">Services</span><span>01</span></a>
+  <a href="#sectors"><span data-i18n="nav6">Sectors</span><span>02</span></a>
+  <a href="#projects"><span data-i18n="nav2">Projects</span><span>03</span></a>
+  <a href="#approach"><span data-i18n="nav3">Approach</span><span>04</span></a>
+  <a href="#about"><span data-i18n="nav4">About</span><span>05</span></a>
+  <a href="#contact"><span data-i18n="nav5">Contact</span><span>06</span></a>
+  <div class="d-foot">
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COOKIE BANNER ===== -->
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <h3 data-i18n="ckH">We keep this simple</h3>
+  <p data-i18n="ckP">This site sets no tracking cookies. We only ask before loading the map, which is served by OpenStreetMap and would receive your IP address. Read the <a href="#">privacy policy</a>.</p>
+  <div class="cookie-btns">
+    <button class="btn btn-a" id="ckAll" data-i18n="ckAll">Accept all</button>
+    <button class="btn btn-b" id="ckNone" data-i18n="ckNone">Reject all</button>
+  </div>
+  <button class="lnk" id="ckCust" data-i18n="ckCust">Choose what loads</button>
+</div>
+
+<!-- ===== COOKIE PREFERENCES ===== -->
+<div class="ov" id="prefs" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+  <div class="ov-bd" data-close="prefs"></div>
+  <div class="ov-cd prefs-cd">
+    <h3 data-i18n="pfH">What loads on this site</h3>
+    <p data-i18n="pfP">Nothing in the second and third group loads until you switch it on. You can change this at any time from the footer.</p>
+    <div class="cat"><div><h4 data-i18n="pf1h">Strictly necessary</h4><p data-i18n="pf1p">Your language and theme choice, stored in your browser. Never shared.</p><div class="tech">localStorage · no cookies · no transfer</div></div>
+      <label class="sw"><input type="checkbox" checked disabled aria-label="Strictly necessary"><i></i></label></div>
+    <div class="cat"><div><h4 data-i18n="pf2h">Map</h4><p data-i18n="pf2p">Loads map tiles from OpenStreetMap, which receives your IP address.</p><div class="tech">openstreetmap.org · EU · no cookie set</div></div>
+      <label class="sw"><input type="checkbox" id="cMap" aria-label="Map"><i></i></label></div>
+    <div class="cat"><div><h4 data-i18n="pf3h">Statistics</h4><p data-i18n="pf3p">Anonymous visit counts so we know which pages are read. No cookie, no personal data.</p><div class="tech">EU-hosted · cookieless · IP not stored</div></div>
+      <label class="sw"><input type="checkbox" id="cStats" aria-label="Statistics"><i></i></label></div>
+    <div class="prefs-act">
+      <button class="btn btn-a" id="pfSave" data-i18n="pfSave">Save choices</button>
+      <button class="btn btn-b" id="pfAll" data-i18n="pfAll">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROJECT MODAL ===== -->
+<div class="ov" id="modal" role="dialog" aria-modal="true" aria-label="Project detail">
+  <div class="ov-bd" data-close="modal"></div>
+  <div class="ov-cd">
+    <div class="modal-img" id="mImg"><span class="tag" id="mTag"></span>
+      <button class="modal-x" data-close="modal" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <h3 id="mName"></h3><div class="modal-loc" id="mLoc"></div>
+      <div class="modal-specs">
+        <div><div class="k" data-i18n="th3">Rating</div><div class="v" id="mCap"></div></div>
+        <div><div class="k" data-i18n="th5">Year</div><div class="v" id="mYear"></div></div>
+        <div><div class="k" data-i18n="mDur">Duration</div><div class="v" id="mDur"></div></div>
+      </div>
+      <p id="mDesc"></p>
+      <h4 data-i18n="mScope">Scope delivered</h4><ul id="mList"></ul>
+    </div>
+  </div>
+</div>

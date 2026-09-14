@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Independent electrical design, classification and inspection for offshore wind, solar and industrial power systems. Belgium, France, Spain.">
+<script>(function(){try{var t=localStorage.getItem("ee-theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()</script>
+<link rel="stylesheet" href="shared/base.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap">
+<title>Energy Experts BV — Editorial</title>
+<style>
+/* ====== DESIGN 3 · EDITORIAL ======  magazine masthead, Fraunces serif display, copper accent */
+:root{
+  --bg:#F5F7F9; --surface:#FFFFFF; --surface-2:#EBEFF3; --surface-3:#DFE5EB;
+  --ink:#1B2A38; --ink-2:#4E5E6C; --ink-3:#7F8D99; --rule:#D3DAE1; --rule-soft:#E3E8ED;
+  --accent:#B5652A; --accent-ink:#FFFFFF; --accent-soft:#F4E6DB; --good:#2E8B57;
+  --shadow-1:0 1px 2px rgba(27,42,56,.06); --shadow-2:0 2px 6px rgba(27,42,56,.06),0 20px 44px -20px rgba(27,42,56,.28);
+  --radius:4px; --radius-s:3px;
+  --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+}
+html[data-theme="dark"]{
+  --bg:#10181F; --surface:#172129; --surface-2:#1E2A33; --surface-3:#26343E;
+  --ink:#ECEFF2; --ink-2:#AEB9C2; --ink-3:#76838E; --rule:#2A3741; --rule-soft:#222E37;
+  --accent:#D9884A; --accent-ink:#1A0E05; --accent-soft:#3B2515; --good:#5BC58A;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 2px 6px rgba(0,0,0,.4),0 20px 44px -20px rgba(0,0,0,.8);
+}
+h1,h2,h3.serif,.serif{font-family:var(--font-display);font-variation-settings:"opsz" 96;letter-spacing:-.015em}
+.kicker{display:flex;align-items:center;gap:14px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.kicker::before,.kicker::after{content:"";flex:1;height:1px;background:var(--rule)}
+.kicker.left::before{display:none}.kicker.left::after{max-width:80px}
+section{padding:96px 0}
+.sec-hd{text-align:center;max-width:64ch;margin:0 auto 52px}
+.sec-hd h2{font-size:clamp(2.1rem,4vw,3.3rem);font-weight:400;margin:18px 0 12px;line-height:1.08}
+.sec-hd .sub{color:var(--ink-2);font-size:17px}
+.wrap{max-width:1160px}
+
+/* masthead */
+.topbar{border-bottom:1px solid var(--rule-soft);font-size:12px;color:var(--ink-3)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px}
+.topbar .tools{display:flex;gap:8px;align-items:center}
+.topbar .lang button{padding:5px 8px;font-size:11px}
+.topbar .icon-btn,.topbar .burger{width:30px;height:30px}
+.topbar .icon-btn svg{width:14px;height:14px}
+.burger i{left:7px;width:14px}.burger i:nth-child(1){top:9px}.burger i:nth-child(2){top:14px;width:10px}.burger i:nth-child(3){top:19px}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(5px) rotate(45deg)}.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+header{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:3px double var(--rule)}
+.mast{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px;gap:24px;transition:height .25s var(--ease)}
+header.stuck .mast{height:64px}
+.mast .brand{font-family:var(--font-display);font-weight:600;font-size:30px;letter-spacing:-.02em;text-decoration:none;text-align:center;line-height:1;font-style:italic;font-variation-settings:"opsz" 144}
+.mast .brand small{display:block;font-family:var(--font);font-style:normal;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3);margin-top:6px;font-weight:600}
+header.stuck .brand small{display:none}
+header.stuck .brand{font-size:24px}
+.mast nav{display:flex;gap:26px}
+.mast nav.r{justify-content:flex-end}
+.mast nav a{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);padding:4px 0;border-bottom:1px solid transparent}
+.mast nav a:hover,.mast nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.mob-burger{display:none}
+
+/* split hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:620px}
+.hero-ph{background:url(img/wind-thornton.jpg) center/cover;position:relative}
+.hero-ph .cap{position:absolute;left:22px;bottom:18px;font-size:11.5px;letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.4);padding:6px 10px}
+.hero-tx{background:var(--surface);padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(2.4rem,4.2vw,3.9rem);font-weight:400;line-height:1.06;margin:22px 0 26px}
+.hero h1 i{color:var(--accent);font-weight:500}
+.hero .lede{font-size:18.5px;line-height:1.6;color:var(--ink-2);max-width:48ch}
+.hero .lede::first-letter{font-family:var(--font-display);font-size:3.4em;float:left;line-height:.82;margin:6px 10px 0 0;color:var(--accent);font-weight:500}
+.hero .cta-row{display:flex;gap:26px;align-items:center;margin-top:36px;flex-wrap:wrap}
+.tlink{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;display:inline-flex;gap:10px;align-items:center;color:var(--ink)}
+.tlink svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.tlink:hover svg{transform:translateX(4px)}
+.tlink:hover{color:var(--accent)}
+
+/* standards row */
+.strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0;text-align:center;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.strip span+span::before{content:"·";margin:0 16px;color:var(--accent)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.svc article{padding:40px 36px;border-right:1px solid var(--rule)}
+.svc article:last-child{border-right:0}
+.orn{width:36px;height:2px;background:var(--accent);margin-bottom:22px}
+.svc h3{font-size:26px;font-weight:400;margin-bottom:14px;line-height:1.15}
+.svc p{color:var(--ink-2);font-size:15.5px;margin-bottom:18px}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.svc li{font-size:14.5px;color:var(--ink-2);padding-left:18px;position:relative}
+.svc li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+
+/* case files (projects) */
+.cf{display:grid;gap:56px}
+.case{display:grid;grid-template-columns:1.15fr 1fr;gap:52px;align-items:center;cursor:pointer}
+.case:nth-child(even){direction:rtl}.case:nth-child(even)>*{direction:ltr}
+.case .ph{aspect-ratio:16/11;background:var(--surface-2) center/cover;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.case:hover .ph{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.case .no{font-family:var(--font-display);font-size:14px;font-style:italic;color:var(--accent)}
+.case h3{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:400;margin:10px 0 12px;line-height:1.1}
+.case .meta{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;display:flex;gap:14px;flex-wrap:wrap}
+.case .meta b{color:var(--ink)}
+.case p{color:var(--ink-2);font-size:16px;margin:16px 0 20px;max-width:46ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--surface)}
+.stats div{padding:34px 24px;text-align:center;border-right:1px solid var(--rule)}
+.stats div:last-child{border-right:0}
+.stats .v{font-family:var(--font-display);font-size:52px;font-weight:400;line-height:1;font-variant-numeric:tabular-nums}
+.stats .v .u{font-size:.5em;color:var(--accent);font-style:italic}
+.stats .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-top:12px}
+
+/* method */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;position:relative;padding-top:30px}
+.steps::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--rule)}
+.steps::after{content:"";position:absolute;top:0;left:0;height:1px;width:0;background:var(--accent);transition:width 1.5s var(--ease)}
+.steps.drawn::after{width:100%}
+.steps .n{font-family:var(--font-display);font-style:italic;font-size:15px;color:var(--accent)}
+.steps h3{font-size:22px;font-weight:400;margin:8px 0 10px}
+.steps p{color:var(--ink-2);font-size:15px}
+
+/* about: two-column running text */
+.about{display:grid;grid-template-columns:1fr 2fr;gap:64px}
+.about h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:400;line-height:1.08;margin-top:18px}
+.about .cols{columns:2;column-gap:40px;color:var(--ink-2);font-size:16.5px;line-height:1.7}
+.about .cols p{break-inside:avoid;margin-bottom:16px}
+.about .cols p:first-child::first-letter{font-family:var(--font-display);font-size:3.2em;float:left;line-height:.82;margin:5px 10px 0 0;color:var(--accent);font-weight:500}
+.certs{margin-top:24px;display:grid;gap:8px;font-size:14px;color:var(--ink-2)}
+.certs div::before{content:"✓";color:var(--accent);margin-right:10px;font-weight:600}
+
+/* photo essay */
+.essay{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:18px}
+.essay figure{margin:0}
+.essay .ph{aspect-ratio:4/3;background:var(--surface-2) center/cover}
+.essay figure:first-child .ph{aspect-ratio:auto;height:100%;min-height:340px}
+.essay figcaption{font-family:var(--font-display);font-style:italic;font-size:14px;color:var(--ink-3);margin-top:10px}
+
+/* quote */
+.quote{text-align:center;padding:0 24px}
+.quote blockquote{margin:0 auto;max-width:30ch;font-family:var(--font-display);font-size:clamp(1.6rem,3.4vw,2.7rem);font-weight:300;font-style:italic;line-height:1.25;color:var(--ink)}
+.quote .attr{margin-top:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.quote .attr b{color:var(--accent)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)}
+.person{padding:30px 28px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.person:last-child{border-right:0}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--font-display);font-size:18px;font-style:italic;margin-bottom:16px}
+.person h3{font-size:22px;font-weight:400}
+.person .role{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:6px 0 10px}
+.person p{font-size:14.5px;color:var(--ink-2)}
+
+/* insights + faq */
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:72px}
+.news article{padding:22px 0;border-top:1px solid var(--rule)}
+.news article:last-child{border-bottom:1px solid var(--rule)}
+.news .m{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.news h3{font-size:23px;font-weight:400;margin:8px 0 6px}
+.news p{font-size:15px;color:var(--ink-2)}
+.faq details{border-top:1px solid var(--rule)}
+.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{display:flex;justify-content:space-between;gap:20px;padding:18px 0;cursor:pointer;list-style:none;font-family:var(--font-display);font-size:19px;font-weight:400}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{font-family:var(--font);color:var(--accent);font-size:22px;line-height:1;transition:transform .3s var(--ease)}
+.faq details[open] summary .pm{transform:rotate(45deg)}
+.faq .ans{padding:0 0 20px;color:var(--ink-2);font-size:15px}
+
+/* cta */
+.band{background:var(--ink);color:var(--bg);padding:80px 0;text-align:center}
+.band h2{font-size:clamp(2rem,4vw,3.4rem);font-weight:300;font-style:italic;max-width:24ch;margin:0 auto 18px;line-height:1.1}
+.band p{opacity:.75;max-width:52ch;margin:0 auto 30px;font-size:16.5px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:start}
+.contact h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:400;margin:18px 0 14px;line-height:1.08}
+.cdl{display:grid;margin:28px 0 0}
+.cdl div{display:grid;grid-template-columns:1fr 2fr;gap:16px;padding:13px 0;border-top:1px solid var(--rule)}
+.cdl dt{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.cdl dd{margin:0;font-size:15px}
+.cdl a{color:var(--accent);text-decoration:none}
+.card{background:var(--surface);border:1px solid var(--rule);padding:32px}
+.map-wrap{margin-top:64px;height:380px}
+
+/* footer */
+footer{border-top:3px double var(--rule);padding:56px 0 28px;margin-top:40px}
+.f-mast{text-align:center;font-family:var(--font-display);font-style:italic;font-size:34px;font-weight:600;margin-bottom:40px}
+.f-mast small{display:block;font-family:var(--font);font-style:normal;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3);margin-top:8px;font-weight:600}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;padding:32px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+footer h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:14px}
+footer a{color:var(--ink-2);text-decoration:none;font-size:15px;display:block;padding:4px 0}
+footer a:hover{color:var(--accent)}
+.legal{font-size:13.5px;line-height:1.9;color:var(--ink-3)}
+.legal b{color:var(--ink);font-weight:600}
+.f-btm{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:12.5px;color:var(--ink-3)}
+.f-btm button{background:none;border:0;color:var(--accent);cursor:pointer;font-size:12.5px;text-decoration:underline;text-underline-offset:3px;padding:0}
+
+@media (max-width:1000px){
+  .mast{grid-template-columns:1fr auto}.mast nav{display:none}.mob-burger{display:block;justify-self:end}
+  .topbar .burger{display:none}
+  .hero{grid-template-columns:1fr}.hero-ph{min-height:360px}.hero-tx{padding:56px 32px}
+  .svc{grid-template-columns:1fr}.svc article{border-right:0;border-bottom:1px solid var(--rule)}.svc article:last-child{border-bottom:0}
+  .case,.case:nth-child(even){grid-template-columns:1fr;direction:ltr;gap:22px}
+  .steps{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr;gap:32px}.about .cols{columns:1}
+  .essay{grid-template-columns:1fr 1fr}.essay figure:first-child{grid-column:1/3}.essay figure:first-child .ph{min-height:260px}
+  .team{grid-template-columns:1fr}.person{border-right:0}
+  .two,.contact{grid-template-columns:1fr;gap:48px}
+  .f-grid{grid-template-columns:1fr 1fr}
+  section{padding:68px 0}
+}
+@media (max-width:600px){.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.steps,.essay,.f-grid{grid-template-columns:1fr}.essay figure:first-child{grid-column:auto}.topbar .lang{display:none}}
+</style>
+</head>
+<body data-design="3">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="prog" id="prog"></div>
+<div class="ribbon">Design concept for <b>Energy Experts BV</b> &middot; placeholder content &middot; not a live site</div>
+<div class="topbar"><div class="wrap"><span data-i18n="tagline">Independent electrical inspection · Belgium</span>
+  <div class="tools">
+<div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button></div>
+<button class="icon-btn" id="theme" aria-label="Toggle dark mode">
+<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4" stroke-linecap="round"/></svg>
+<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" stroke-linejoin="round"/></svg>
+</button>
+<button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i></button>
+</div>
+</div></div>
+<header id="hdr"><div class="wrap mast">
+  <nav class="main" aria-label="Main"><a href="#services" data-i18n="nav1">Services</a><a href="#sectors" data-i18n="nav6">Sectors</a><a href="#projects" data-i18n="nav2">Projects</a></nav>
+  <a class="brand" href="#top">Energy Experts<small>Besloten Vennootschap · Grimbergen</small></a>
+  <nav class="main r" aria-label="Main secondary"><a href="#approach" data-i18n="nav3">Approach</a><a href="#about" data-i18n="nav4">About</a><a href="#contact" data-i18n="nav5">Contact</a></nav>
+  <button class="burger mob-burger" aria-label="Menu" aria-expanded="false" onclick="document.getElementById('burger').click();this.setAttribute('aria-expanded',document.getElementById('burger').getAttribute('aria-expanded'))"><i></i><i></i><i></i></button>
+</div></header>
+
+<main id="main"><a id="top"></a>
+<section class="hero" style="padding:0">
+  <div class="hero-ph"><span class="cap" data-i18n="cap2">Thorntonbank wind farm, aerial</span></div>
+  <div class="hero-tx">
+    <span class="kicker left" data-i18n="heroEyebrow">Independent energy engineering · Belgium</span>
+    <h1><span data-i18n="h1v3">The report your inspection body accepts first time.</span></h1>
+    <p class="lede" data-i18n="heroLede">Energy Experts BV delivers independent electrical design, classification and inspection for offshore wind, solar and industrial power systems across Belgium, France and Spain.</p>
+    <div class="cta-row"><a class="btn btn-c" href="#contact" data-i18n="ctaA">Request an inspection</a>
+      <a class="tlink" href="#projects"><span data-i18n="ctaB">See our work</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+
+<div class="strip"><span>AREI / RGIE</span><span>IEC 61400-4</span><span>IEC 62446-1</span><span>EN 50110</span><span>ISO 9001</span><span>VCA / LSC</span></div>
+
+<section id="services"><div class="wrap">
+  <div class="sec-hd rv"><span class="kicker" data-i18n="svcEyebrow">Services</span><h2 data-i18n="svcH2">Three disciplines, one dossier</h2><p class="sub" data-i18n="svcSub">Every assignment ends in a conformity file your inspection body and your insurer will accept.</p></div>
+  <div class="svc">
+    <article class="rv"><div class="orn"></div><h3 data-i18n="s1h">Electrical design &amp; classification</h3><p data-i18n="s1p">Design review, conformity assessment and zone classification for LV and HV installations under AREI/RGIE.</p><ul><li data-i18n="s1a">Single-line diagram review</li><li data-i18n="s1b">Protection coordination study</li><li data-i18n="s1c">Technical dossier preparation</li></ul></article>
+    <article class="rv rv-d1"><div class="orn"></div><h3 data-i18n="s2h">Offshore wind</h3><p data-i18n="s2p">Commissioning support, electrical inspection and QA/QC witness for turbines, array cables and offshore substations.</p><ul><li data-i18n="s2a">Array cable termination witness</li><li data-i18n="s2b">HV commissioning support</li><li data-i18n="s2c">Punch list close-out</li></ul></article>
+    <article class="rv rv-d2"><div class="orn"></div><h3 data-i18n="s3h">Solar PV inspection</h3><p data-i18n="s3p">Thermographic survey, string and insulation testing, and IEC 62446 commissioning reports for rooftop and utility-scale arrays.</p><ul><li data-i18n="s3a">Drone and handheld thermography</li><li data-i18n="s3b">String I-V curve tracing</li><li data-i18n="s3c">Yield underperformance analysis</li></ul></article>
+  </div>
+</div></section>
+
+<section id="sectors" style="padding-top:0"><div class="wrap">
+  <div class="sec-hd rv"><span class="kicker" data-i18n="secEyebrow">Sectors</span><h2 data-i18n="secH2">Where we work</h2></div>
+  <div class="essay rv">
+    <figure><div class="ph" style="background-image:url(img/wind-norther.jpg)"></div><figcaption data-i18n="x1h">Offshore &amp; marine</figcaption></figure>
+    <figure><div class="ph" style="background-image:url(img/solar-nottuln.jpg)"></div><figcaption data-i18n="x2h">Utility-scale solar</figcaption></figure>
+    <figure><div class="ph" style="background-image:url(img/hv-switchgear-1.jpg)"></div><figcaption data-i18n="x3h">Industry &amp; logistics</figcaption></figure>
+    <figure style="grid-column:2/4"><div class="ph" style="background-image:url(img/oss-sarens.jpg);aspect-ratio:21/9"></div><figcaption data-i18n="x4h">Grid &amp; substations</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="projects" style="background:var(--surface)"><div class="wrap">
+  <div class="sec-hd rv"><span class="kicker" data-i18n="prjEyebrow">Project register</span><h2 data-i18n="prjH2">Recent assignments</h2><p class="sub" data-i18n="prjSub">Select any row to open the full scope and technical summary.</p></div>
+  <div class="cf" id="prjList"></div>
+  <template id="prjTpl"><article class="case rv" role="button" aria-haspopup="dialog">
+    <div class="ph" data-f="img"></div>
+    <div><div class="no"><span data-f="idx"></span> — <span data-f="tag"></span></div><h3 data-f="name"></h3>
+      <div class="meta"><b data-f="cap"></b><span data-f="loc"></span><span data-f="year"></span></div>
+      <p data-f="desc"></p>
+      <span class="tlink"><span data-i18n="learn">Learn more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  </article></template>
+  <p style="margin-top:40px;text-align:center;font-size:13.5px;color:var(--ink-3);font-style:italic;font-family:var(--font-display)" data-i18n="regNote">Sample entries — you add, edit and remove these yourself, without a developer.</p>
+</div></section>
+
+<div class="stats rv" id="stats">
+  <div><div class="v" data-count="240" data-suffix="+">240<span class="u">+</span></div><div class="k" data-i18n="k1">Inspections completed</div></div>
+  <div><div class="v" data-count="1.4" data-suffix=" GW">1.4<span class="u"> GW</span></div><div class="k" data-i18n="k2">Capacity assessed</div></div>
+  <div><div class="v" data-count="4">4</div><div class="k" data-i18n="k3">Countries</div></div>
+  <div><div class="v" data-count="10" data-suffix=" yrs">10<span class="u"> yrs</span></div><div class="k" data-i18n="k4">In practice</div></div>
+</div>
+
+<section id="approach"><div class="wrap">
+  <div class="sec-hd rv"><span class="kicker" data-i18n="appEyebrow">Method</span><h2 data-i18n="appH2">How an assignment runs</h2><p class="sub" data-i18n="appSub">Four stages, from first drawing to a cleared installation.</p></div>
+  <div class="steps" id="steps">
+    <article><div class="n" data-i18n="n1">Stage 01</div><h3 data-i18n="a1h">Intake</h3><p data-i18n="a1p">We collect single-line diagrams, protection settings and as-built documentation before anyone mobilises.</p></article>
+    <article><div class="n" data-i18n="n2">Stage 02</div><h3 data-i18n="a2h">Field measurement</h3><p data-i18n="a2p">On site: insulation resistance, earthing continuity, thermography and torque verification.</p></article>
+    <article><div class="n" data-i18n="n3">Stage 03</div><h3 data-i18n="a3h">Conformity dossier</h3><p data-i18n="a3p">Findings compiled into a report written to be accepted first time by your inspection body.</p></article>
+    <article><div class="n" data-i18n="n4">Stage 04</div><h3 data-i18n="a4h">Clearance</h3><p data-i18n="a4p">Remediation advice and re-inspection until the installation is signed off.</p></article>
+  </div>
+</div></section>
+
+<section id="about" style="background:var(--surface)"><div class="wrap">
+  <div class="about">
+    <div class="rv"><span class="kicker left" data-i18n="abEyebrow">About us</span><h2 data-i18n="abH2">Engineers, not auditors.</h2>
+      <div class="certs" style="margin-top:28px"><div data-i18n="cert1">BelAC-recognised inspection partner</div><div data-i18n="cert2">VCA / LSC safety certified</div><div data-i18n="cert3">ISO 9001 quality management</div><div data-i18n="cert4">GWO Basic Safety Training, offshore</div></div></div>
+    <div class="cols rv rv-d1"><p data-i18n="abP1">We are a small Belgian practice of chartered electrical engineers working across North Sea wind, industrial power and utility-scale solar. Every assignment is carried out by the engineer who signs the report.</p><p data-i18n="abP2">Independence is the product. We hold no supplier relationships and we install nothing, so our findings answer to the standard and to you.</p><p data-i18n="wh3p">Reports in the language of your inspection body — NL, FR, EN or ES.</p></div>
+  </div>
+  <div class="team rv" style="margin-top:64px">
+    <div class="person"><div class="avatar">JV</div><h3>Jan Vermeulen</h3><div class="role" data-i18n="r1">Managing director</div><p data-i18n="b1">Chartered electrical engineer. Twenty years in HV commissioning across the North Sea.</p></div>
+    <div class="person"><div class="avatar">SD</div><h3>Sofie De Clerck</h3><div class="role" data-i18n="r2">Head of inspection</div><p data-i18n="b2">Leads AREI/RGIE conformity work and signs the technical dossiers.</p></div>
+    <div class="person"><div class="avatar">MR</div><h3>Miguel Ríos</h3><div class="role" data-i18n="r3">Solar lead, Iberia</div><p data-i18n="b3">IEC 62446 commissioning and thermographic survey across Spain and southern France.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="quote rv">
+  <blockquote data-i18n="qT">They found a protection setting error two other parties had signed off. The report was accepted by our inspection body without a single query.</blockquote>
+  <div class="attr"><b data-i18n="qN">Project director</b> · <span data-i18n="qC">offshore wind developer, Ostend</span></div>
+</div></div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap two">
+  <div class="rv"><span class="kicker left" data-i18n="nwH">Insights</span>
+    <div class="news" style="margin-top:22px">
+      <article><span class="m" data-i18n="nw1m">Offshore · 6 min</span><h3 data-i18n="nw1t">Why 66 kV array cables fail at the termination</h3><p data-i18n="nw1d">Reading the tan delta curve before it becomes a warranty claim.</p></article>
+      <article><span class="m" data-i18n="nw2m">Regulation · 4 min</span><h3 data-i18n="nw2t">AREI/RGIE 2025: what changed for HV cabins</h3><p data-i18n="nw2d">The revised zone classification rules, explained for site managers.</p></article>
+      <article><span class="m" data-i18n="nw3m">Solar · 5 min</span><h3 data-i18n="nw3t">Thermography is not an inspection</h3><p data-i18n="nw3d">A hot spot is a symptom. The I-V trace tells you the cause.</p></article>
+    </div></div>
+  <div class="rv rv-d1"><span class="kicker left" data-i18n="faqEyebrow">Questions</span>
+    <div class="faq" style="margin-top:22px">
+      <details><summary><span data-i18n="q1">How quickly can you mobilise?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an1">For installations in Belgium, typically within five working days. Offshore assignments are planned around the vessel window and are agreed in advance.</div></details>
+      <details><summary><span data-i18n="q2">Do you issue the official certificate?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an2">No, and that is deliberate. We prepare the conformity dossier and correct the findings so that the accredited inspection body can certify without objection. Keeping those roles separate is what makes the file credible.</div></details>
+      <details><summary><span data-i18n="q3">Which languages do you report in?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an3">Dutch, French, English and Spanish. The report is delivered in the language your inspection body works in.</div></details>
+      <details><summary><span data-i18n="q4">Do you work outside Belgium?</span><span class="pm">+</span></summary><div class="ans" data-i18n="an4">Regularly. Roughly half our solar work is in France and Spain, and offshore assignments cover the Belgian and Dutch North Sea.</div></details>
+    </div></div>
+</div></section>
+
+<div class="band"><div class="wrap rv">
+  <h2 data-i18n="ctaH">Have an installation waiting on sign-off?</h2>
+  <p data-i18n="ctaP">Send us the single-line diagram. Within two working days we will tell you what it takes to clear it.</p>
+  <a class="btn btn-c" href="#contact" data-i18n="ctaBtn">Start an enquiry</a>
+</div></div>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <div class="rv"><span class="kicker left" data-i18n="ctEyebrow">Contact</span><h2 data-i18n="ctH2">Tell us about the installation.</h2>
+      <p style="color:var(--ink-2)" data-i18n="ctP">Send the basics and we will come back within two working days with a scope and a price.</p>
+      <dl class="cdl">
+        <div><dt data-i18n="c1">Office</dt><dd>Albrecht Rodenbachlaan 29<br>1850 Grimbergen, BE</dd></div>
+        <div><dt data-i18n="c2">Telephone</dt><dd><a href="tel:+32472184220">+32 472 18 42 20</a></dd></div>
+        <div><dt data-i18n="c3">Email</dt><dd><a href="mailto:info@energyexpertsbv.com">info@energyexpertsbv.com</a></dd></div>
+        <div><dt data-i18n="c4">Hours</dt><dd data-i18n="c4v">Mon–Fri, 08:00–17:00 CET</dd></div>
+      </dl></div>
+    <div class="card rv rv-d1"><form id="enq" class="rv rv-d1" novalidate>
+  <div class="f2">
+    <div><label for="fn" data-i18n="f1">Name</label><input id="fn" type="text" required></div>
+    <div><label for="fc" data-i18n="f2">Company</label><input id="fc" type="text"></div>
+  </div>
+  <div class="f2">
+    <div><label for="fe" data-i18n="f3">Email</label><input id="fe" type="email" required></div>
+    <div><label for="fs" data-i18n="f4">Service</label><select id="fs">
+      <option data-i18n="o1">Electrical classification</option><option data-i18n="o2">Offshore wind</option>
+      <option data-i18n="o3">Solar PV inspection</option><option data-i18n="o4">Something else</option></select></div>
+  </div>
+  <div><label for="fm" data-i18n="f5">Describe the installation</label><textarea id="fm" required></textarea></div>
+  <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <label class="consent"><input type="checkbox" required><span data-i18n="f6">I agree that Energy Experts BV may store and use these details to answer my enquiry, as described in the privacy policy.</span></label>
+  <button class="btn btn-a" type="submit" data-i18n="f7">Send enquiry</button>
+  <p class="form-note" id="fnote" data-i18n="f8">Demo form — nothing is sent</p>
+</form>
+</div>
+  </div>
+  <figure class="map-wrap rv">
+  <img src="img/office-map.jpg" width="760" height="420" loading="lazy" decoding="async"
+       alt="Map showing the Energy Experts BV office on Albrecht Rodenbachlaan in Grimbergen, north of Brussels">
+  <span class="map-pin" aria-hidden="true"><i></i></span>
+  <figcaption class="map-bar">
+    <span class="map-addr"><b>Energy Experts BV</b>Albrecht Rodenbachlaan 29, 1850 Grimbergen</span>
+    <a class="btn btn-c map-open" target="_blank" rel="noopener noreferrer"
+       href="https://www.openstreetmap.org/?mlat=50.9367&amp;mlon=4.3762#map=16/50.9367/4.3762">
+      <span data-i18n="mapB">Open in Maps</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </figcaption>
+  <span class="map-attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a></span>
+</figure>
+
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="f-mast">Energy Experts<small>Besloten Vennootschap · Grimbergen · <span data-i18n="since">Since 2016</span></small></div>
+  <div class="f-grid"><div class="legal"><b>Energy Experts BV</b><br>Albrecht Rodenbachlaan 29, 1850 Grimbergen<br>
+<span data-i18n="fEnt">Enterprise no.</span> BE 0XXX.XXX.XXX &middot; <span data-i18n="fVat">VAT</span> BE 0XXX.XXX.XXX &middot; RPR Brussel</div><div><h4 data-i18n="fNav">Site</h4><a href="#services" data-i18n="nav1b">Services</a><a href="#sectors" data-i18n="nav6b">Sectors</a><a href="#projects" data-i18n="nav2b">Projects</a><a href="#approach" data-i18n="nav3b">Approach</a></div>
+<div><h4 data-i18n="fComp">Company</h4><a href="#about" data-i18n="nav4b">About</a><a href="#faq" data-i18n="fFaq">FAQ</a><a href="#contact" data-i18n="nav5b">Contact</a><a href="#" data-i18n="fCareer">Careers</a></div>
+<div><h4 data-i18n="fLegal">Legal</h4><a href="#" data-i18n="fl1">Privacy policy</a><a href="#" data-i18n="fl3">Terms &amp; conditions</a><a href="#" data-i18n="fl4">Complaints</a><a href="img/CREDITS.txt" data-i18n="photoCredits">Photo credits</a></div></div>
+  <div class="f-btm"><span>&copy; 2026 Energy Experts BV</span>
+<span><button id="ckOpen" data-i18n="fCk">Cookie settings</button> &middot; <span data-i18n="fBtm">Design concept &middot; placeholder content</span></span></div>
+</div></footer>
+<!-- ===== DRAWER ===== -->
+<div class="drawer" id="drawer">
+  <a href="#services"><span data-i18n="nav1">Services</span><span>01</span></a>
+  <a href="#sectors"><span data-i18n="nav6">Sectors</span><span>02</span></a>
+  <a href="#projects"><span data-i18n="nav2">Projects</span><span>03</span></a>
+  <a href="#approach"><span data-i18n="nav3">Approach</span><span>04</span></a>
+  <a href="#about"><span data-i18n="nav4">About</span><span>05</span></a>
+  <a href="#contact"><span data-i18n="nav5">Contact</span><span>06</span></a>
+  <div class="d-foot">
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="nl">NL</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COOKIE BANNER ===== -->
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <h3 data-i18n="ckH">We keep this simple</h3>
+  <p data-i18n="ckP">This site sets no tracking cookies. We only ask before loading the map, which is served by OpenStreetMap and would receive your IP address. Read the <a href="#">privacy policy</a>.</p>
+  <div class="cookie-btns">
+    <button class="btn btn-a" id="ckAll" data-i18n="ckAll">Accept all</button>
+    <button class="btn btn-b" id="ckNone" data-i18n="ckNone">Reject all</button>
+  </div>
+  <button class="lnk" id="ckCust" data-i18n="ckCust">Choose what loads</button>
+</div>
+
+<!-- ===== COOKIE PREFERENCES ===== -->
+<div class="ov" id="prefs" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+  <div class="ov-bd" data-close="prefs"></div>
+  <div class="ov-cd prefs-cd">
+    <h3 data-i18n="pfH">What loads on this site</h3>
+    <p data-i18n="pfP">Nothing in the second and third group loads until you switch it on. You can change this at any time from the footer.</p>
+    <div class="cat"><div><h4 data-i18n="pf1h">Strictly necessary</h4><p data-i18n="pf1p">Your language and theme choice, stored in your browser. Never shared.</p><div class="tech">localStorage · no cookies · no transfer</div></div>
+      <label class="sw"><input type="checkbox" checked disabled aria-label="Strictly necessary"><i></i></label></div>
+    <div class="cat"><div><h4 data-i18n="pf2h">Map</h4><p data-i18n="pf2p">Loads map tiles from OpenStreetMap, which receives your IP address.</p><div class="tech">openstreetmap.org · EU · no cookie set</div></div>
+      <label class="sw"><input type="checkbox" id="cMap" aria-label="Map"><i></i></label></div>
+    <div class="cat"><div><h4 data-i18n="pf3h">Statistics</h4><p data-i18n="pf3p">Anonymous visit counts so we know which pages are read. No cookie, no personal data.</p><div class="tech">EU-hosted · cookieless · IP not stored</div></div>
+      <label class="sw"><input type="checkbox" id="cStats" aria-label="Statistics"><i></i></label></div>
+    <div class="prefs-act">
+      <button class="btn btn-a" id="pfSave" data-i18n="pfSave">Save choices</button>
+      <button class="btn btn-b" id="pfAll" data-i18n="pfAll">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROJECT MODAL ===== -->
+<div class="ov" id="modal" role="dialog" aria-modal="true" aria-label="Project detail">
+  <div class="ov-bd" data-close="modal"></div>
+  <div class="ov-cd">
+    <div class="modal-img" id="mImg"><span class="tag" id="mTag"></span>
+      <button class="modal-x" data-close="modal" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <h3 id="mName"></h3><div class="modal-loc" id="mLoc"></div>
+      <div class="modal-specs">
+        <div><div class="k" data-i18n="th3">Rating</div><div class="v" id="mCap"></div></div>
+        <div><div class="k" data-i18n="th5">Year</div><div class="v" id="mYear"></div></div>
+        <div><div class="k" data-i18n="mDur">Duration</div><div class="v" id="mDur"></div></div>
+      </div>
+      <p id="mDesc"></p>
+      <h4 data-i18n="mScope">Scope delivered</h4><ul id="mList"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="shared/content.js"></script>
+<script src="shared/app.js"></script>
+</body></html>

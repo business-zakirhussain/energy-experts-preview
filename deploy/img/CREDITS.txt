@@ -1,0 +1,63 @@
+Photo credits — all images from Wikimedia Commons, used under the licence stated.
+Replace with the client's own photography before launch.
+
+wind-norther.jpg
+  Norther wind farm, North Sea.jpg
+  by European Union , Copernicus Sentinel-2  imagery — Attribution
+  https://commons.wikimedia.org/wiki/File:Norther_wind_farm,_North_Sea.jpg
+
+wind-thornton-air.jpg
+  Aerial view of Thorntonbank Wind Farm.jpg
+  by Treehill — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Aerial_view_of_Thorntonbank_Wind_Farm.jpg
+
+wind-thornton.jpg
+  Offshore windpark Thorntonbank.jpg
+  by Lieven — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Offshore_windpark_Thorntonbank.jpg
+
+vessel-cable.jpg
+  Cable Innovator (C-Power).jpg
+  by Hans Hillewaert — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Cable_Innovator_(C-Power).jpg
+
+solar-dulmen.jpg
+  Dülmen, Solarpark -- 2014 -- 8132.jpg
+  by Dietmar Rabich — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Solarpark_--_2014_--_8132.jpg
+
+solar-nottuln.jpg
+  Nottuln, Appelhülsen, Fotovoltaikpark -- 2014 -- 7388.jpg
+  by Dietmar Rabich — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Nottuln,_Appelh%C3%BClsen,_Fotovoltaikpark_--_2014_--_7388.jpg
+
+hv-switchgear-1.jpg
+  High-voltage switchgear 01.jpg
+  by Novoklimov — CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:High-voltage_switchgear_01.jpg
+
+hv-switchgear-4.jpg
+  High-voltage switchgear 04.jpg
+  by Novoklimov — CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:High-voltage_switchgear_04.jpg
+
+oss-blighbank.jpg
+  Bligh Bank 2 offshore substation BE 2016.jpg
+  by Askjell (Askjell Nicolas Raudøy) — CC BY 2.0
+  https://commons.wikimedia.org/wiki/File:Bligh_Bank_2_offshore_substation_BE_2016.jpg
+
+oss-sarens.jpg
+  Electrical offshore substation ROW01-Z01 on Sarens barge Caroline.jpg
+  by Alf van Beem — CC0
+  https://commons.wikimedia.org/wiki/File:Electrical_offshore_substation_ROW01-Z01_on_Sarens_barge_Caroline.jpg
+
+oss-rampion.jpg
+  20250329 - Rampion Wind Farm offshore substation.jpg
+  by Russss — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:20250329_-_Rampion_Wind_Farm_offshore_substation.jpg
+
+office-map.jpg
+  Map data © OpenStreetMap contributors, ODbL.
+  Rendered from openstreetmap.org tiles at build time and bundled with the
+  site so the page makes no third-party request at run time.
+  https://www.openstreetmap.org/copyright
