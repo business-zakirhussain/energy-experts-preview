@@ -9,6 +9,10 @@ rd = lambda p: io.open(p, encoding="utf-8").read()
 HEAD = '''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" sizes="256x256" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="theme-color" content="#0B1C26">
 <meta name="description" content="Independent electrical design, classification and inspection for offshore wind, solar and industrial power systems. Belgium, France, Spain.">
 <script>(function(){try{var t=localStorage.getItem("ee-theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()</script>
 <link rel="stylesheet" href="shared/base.css">'''
