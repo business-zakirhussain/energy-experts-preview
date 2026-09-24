@@ -1,0 +1,45 @@
+{
+  "order": 1,
+  "name": "Norther OWF",
+  "cap": "370 MW",
+  "year": "2024",
+  "dur": "14 mo",
+  "img": "img/wind-norther.jpg",
+  "tag": {
+    "en": "Offshore wind",
+    "fr": "Éolien offshore",
+    "nl": "Offshore wind"
+  },
+  "loc": {
+    "en": "Belgian North Sea",
+    "fr": "Mer du Nord belge",
+    "nl": "Belgische Noordzee"
+  },
+  "scope": {
+    "en": "Array cable QA/QC",
+    "fr": "QA/QC câbles inter-éoliennes",
+    "nl": "QA/QC parkkabels"
+  },
+  "desc": {
+    "en": "Witness and documentation of 66 kV array cable terminations across 44 turbine positions, including pull-in supervision and post-installation testing.",
+    "fr": "Témoin et documentation des raccordements de câbles 66 kV sur 44 positions d’éoliennes, avec supervision du tirage et essais après installation.",
+    "nl": "Toezicht op en documentatie van 66 kV-kabelmoffen op 44 turbineposities, inclusief begeleiding van het intrekken en beproeving na installatie."
+  },
+  "list": {
+    "en": [
+      "Termination witness, 44 positions",
+      "VLF and tan delta testing",
+      "Punch list close-out with the EPC"
+    ],
+    "fr": [
+      "Témoin de raccordement, 44 positions",
+      "Essais VLF et tan delta",
+      "Clôture des réserves avec l’EPC"
+    ],
+    "nl": [
+      "Toezicht op moffen, 44 posities",
+      "VLF- en tan delta-metingen",
+      "Afwerking restpunten met de EPC"
+    ]
+  }
+}

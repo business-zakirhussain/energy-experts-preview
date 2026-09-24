@@ -1,0 +1,45 @@
+{
+  "order": 6,
+  "name": "Planta Solar Aragón",
+  "cap": "28 MWp",
+  "year": "2025",
+  "dur": "11 mo",
+  "img": "img/wind-thornton-air.jpg",
+  "tag": {
+    "en": "Solar PV",
+    "fr": "Photovoltaïque",
+    "nl": "Zonne-energie"
+  },
+  "loc": {
+    "en": "Zaragoza, ES",
+    "fr": "Saragosse, ES",
+    "nl": "Zaragoza, ES"
+  },
+  "scope": {
+    "en": "Owner's engineer",
+    "fr": "Ingénieur du maître d’ouvrage",
+    "nl": "Ingenieur van de bouwheer"
+  },
+  "desc": {
+    "en": "Owner's engineer through construction and handover, from design review to provisional acceptance, reporting in Spanish and English.",
+    "fr": "Ingénieur du maître d’ouvrage pendant la construction et la réception, de la revue de conception à la réception provisoire, en espagnol et en anglais.",
+    "nl": "Ingenieur van de bouwheer tijdens bouw en oplevering, van ontwerpnazicht tot voorlopige oplevering, met rapportering in het Spaans en het Engels."
+  },
+  "list": {
+    "en": [
+      "Design review and approvals",
+      "Monthly site surveillance",
+      "Provisional acceptance punch list"
+    ],
+    "fr": [
+      "Revue de conception et validations",
+      "Surveillance mensuelle du chantier",
+      "Réserves de réception provisoire"
+    ],
+    "nl": [
+      "Ontwerpnazicht en goedkeuringen",
+      "Maandelijks werftoezicht",
+      "Restpuntenlijst voorlopige oplevering"
+    ]
+  }
+}

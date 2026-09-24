@@ -1,0 +1,20 @@
+{
+  "date": "2026-08-19",
+  "read": "6",
+  "img": "img/vessel-cable.jpg",
+  "cat": {
+    "en": "Offshore",
+    "fr": "Offshore",
+    "nl": "Offshore"
+  },
+  "title": {
+    "en": "Why 66 kV array cables fail at the termination",
+    "fr": "Pourquoi les câbles 66 kV cèdent au raccordement",
+    "nl": "Waarom 66 kV-parkkabels falen bij de mof"
+  },
+  "excerpt": {
+    "en": "Reading the tan delta curve before it becomes a warranty claim.",
+    "fr": "Lire la courbe tan delta avant qu’elle ne devienne une réclamation en garantie.",
+    "nl": "De tan delta-curve lezen voordat het een garantiedossier wordt."
+  }
+}

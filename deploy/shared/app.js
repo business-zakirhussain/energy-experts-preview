@@ -32,6 +32,19 @@
   /* ---------- language ---------- */
   var L = store.get("ee-lang") || "en";
   if (!T[L]) L = "en";
+
+  /* CMS content may be only partly translated -- fall back to English
+     rather than rendering "undefined" or throwing on a missing locale. */
+  function tr(o) {
+    if (!o) return "";
+    var v = o[L];
+    if (v === undefined || v === null || v === "") v = o.en;
+    return (v === undefined || v === null) ? "" : v;
+  }
+  function trList(o) {
+    var v = o && (o[L] && o[L].length ? o[L] : o.en);
+    return Array.isArray(v) ? v : [];
+  }
   window.EE = { onLang: [], get lang() { return L; }, openProject: function (i) { openProject(i); } };
   var nodes = $$("[data-i18n]");
   function setLang(code) {
@@ -63,10 +76,10 @@
         case "cap":  v = p.cap;  break;
         case "year": v = p.year; break;
         case "dur":  v = p.dur;  break;
-        case "loc":  v = p.loc[L]; break;
-        case "tag":  v = p.tag[L]; break;
-        case "scope":v = p.scope[L]; break;
-        case "desc": v = p.desc[L]; break;
+        case "loc":  v = tr(p.loc); break;
+        case "tag":  v = tr(p.tag); break;
+        case "scope":v = tr(p.scope); break;
+        case "desc": v = tr(p.desc); break;
         case "idx":  v = String(p._i + 1).padStart(2, "0"); break;
         case "img":
           if (el.tagName === "IMG") { el.src = p.img || ""; el.alt = p.name; }
@@ -111,10 +124,10 @@
       $$("[data-n]", node).forEach(function (el) {
         var f = el.dataset.n;
         if (f === "img") { el.style.backgroundImage = n.img ? "url(" + n.img + ")" : ""; return; }
-        if (f === "meta") { el.textContent = n.cat[L] + " · " + n.read + " min"; return; }
+        if (f === "meta") { el.textContent = tr(n.cat) + " · " + n.read + " min"; return; }
         if (f === "date") { el.textContent = longDate(n.date, L); el.setAttribute("datetime", n.date); return; }
-        if (f === "title") { el.textContent = n.title[L]; return; }
-        if (f === "excerpt") { el.textContent = n.excerpt[L]; return; }
+        if (f === "title") { el.textContent = tr(n.title); return; }
+        if (f === "excerpt") { el.textContent = tr(n.excerpt); return; }
       });
       newsList.appendChild(node);
       if (io) { io.observe(node); }
@@ -126,12 +139,12 @@
     if (!modal) return;
     var p = PROJECTS[i];
     var set = function (id, v) { var el = $(id); if (el) el.textContent = v; };
-    set("#mTag", p.tag[L]); set("#mName", p.name); set("#mLoc", p.loc[L]);
+    set("#mTag", tr(p.tag)); set("#mName", p.name); set("#mLoc", tr(p.loc));
     set("#mCap", p.cap);    set("#mYear", p.year); set("#mDur", p.dur);
-    set("#mDesc", p.desc[L]);
+    set("#mDesc", tr(p.desc));
     var img = $("#mImg"); if (img) img.style.backgroundImage = p.img ? "url(" + p.img + ")" : "";
     var ul = $("#mList");
-    if (ul) { ul.innerHTML = ""; p.list[L].forEach(function (t) {
+    if (ul) { ul.innerHTML = ""; trList(p.list).forEach(function (t) {
       var li = document.createElement("li"); li.textContent = t; ul.appendChild(li); }); }
     lastFocus = document.activeElement;
     modal.classList.add("open"); lockScroll(true);

@@ -1,0 +1,45 @@
+{
+  "order": 2,
+  "name": "Rentel OWF",
+  "cap": "309 MW",
+  "year": "2023",
+  "dur": "9 mo",
+  "img": "img/oss-blighbank.jpg",
+  "tag": {
+    "en": "Offshore wind",
+    "fr": "Éolien offshore",
+    "nl": "Offshore wind"
+  },
+  "loc": {
+    "en": "Belgian North Sea",
+    "fr": "Mer du Nord belge",
+    "nl": "Belgische Noordzee"
+  },
+  "scope": {
+    "en": "Commissioning support",
+    "fr": "Assistance mise en service",
+    "nl": "Ondersteuning indienststelling"
+  },
+  "desc": {
+    "en": "HV commissioning support on the offshore substation, covering protection settings verification, earthing survey and energisation readiness.",
+    "fr": "Assistance à la mise en service HT du poste offshore : vérification des réglages de protection, relevé des terres et revue de mise sous tension.",
+    "nl": "Ondersteuning bij de HS-indienststelling van de offshore post: controle van beveiligingsinstellingen, aardingsonderzoek en gereedheid voor inschakeling."
+  },
+  "list": {
+    "en": [
+      "Protection settings verification",
+      "Earthing and bonding survey",
+      "Energisation readiness review"
+    ],
+    "fr": [
+      "Vérification des réglages de protection",
+      "Relevé des terres et liaisons",
+      "Revue de mise sous tension"
+    ],
+    "nl": [
+      "Controle van beveiligingsinstellingen",
+      "Onderzoek aarding en vereffening",
+      "Nazicht gereedheid voor inschakeling"
+    ]
+  }
+}

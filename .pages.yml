@@ -1,0 +1,75 @@
+# Pages CMS configuration -- https://pagescms.org
+# Defines what the client can edit. Everything else (UI copy, layout, legal
+# text) stays in code and is deliberately NOT exposed here.
+
+media:
+  input: content/uploads      # originals committed by the CMS
+  output: img                 # public path written into the content field
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe                # sanitise uploaded filenames
+
+components:
+  # One reusable trilingual field, referenced with `component:`.
+  # EN required, FR/NL optional -- app.js falls back to EN via tr()/trList(),
+  # so a half-translated entry still renders instead of throwing.
+  trilingual_short:
+    type: object
+    fields:
+      - { name: en, label: "English",    type: string, required: true }
+      - { name: fr, label: "Français",   type: string }
+      - { name: nl, label: "Nederlands", type: string }
+  trilingual_long:
+    type: object
+    fields:
+      - { name: en, label: "English",    type: text, required: true }
+      - { name: fr, label: "Français",   type: text }
+      - { name: nl, label: "Nederlands", type: text }
+  trilingual_bullets:
+    type: object
+    fields:
+      - { name: en, label: "English",    type: string, list: true, required: true }
+      - { name: fr, label: "Français",   type: string, list: true }
+      - { name: nl, label: "Nederlands", type: string, list: true }
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
+    format: json
+    filename: "{fields.name}.json"          # top-level field, auto-slugified
+    view:
+      fields: [order, name, year, cap]
+      sort: [order, year, name]
+      primary: name
+    fields:
+      - { name: order, label: "Display order", type: number, required: true,
+          description: "1 shows first. Lower numbers appear earlier on the site." }
+      - { name: name,  label: "Project name",  type: string, required: true }
+      - { name: cap,   label: "Capacity",      type: string, description: "e.g. 370 MW" }
+      - { name: year,  label: "Year",          type: string, description: "e.g. 2024" }
+      - { name: dur,   label: "Duration",      type: string, description: "e.g. 14 mo" }
+      - { name: img,   label: "Photo",         type: image }
+      - { name: tag,   label: "Category",      component: trilingual_short }
+      - { name: loc,   label: "Location",      component: trilingual_short }
+      - { name: scope, label: "Scope (short)", component: trilingual_short }
+      - { name: desc,  label: "Description",   component: trilingual_long }
+      - { name: list,  label: "Key points",    component: trilingual_bullets }
+
+  - name: news
+    label: News
+    type: collection
+    path: content/news
+    format: json
+    filename: "{fields.date}-{hour}{minute}.json"   # documented tokens only
+    view:
+      fields: [date, title, cat]
+      sort: [date]
+      order: desc
+    fields:
+      - { name: date,    label: "Date",            type: date, required: true }
+      - { name: read,    label: "Read time (min)", type: string, description: "e.g. 6" }
+      - { name: img,     label: "Photo",           type: image }
+      - { name: cat,     label: "Category",        component: trilingual_short }
+      - { name: title,   label: "Headline",        component: trilingual_short }
+      - { name: excerpt, label: "Summary",         component: trilingual_long }

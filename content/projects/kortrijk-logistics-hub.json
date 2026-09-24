@@ -1,0 +1,45 @@
+{
+  "order": 3,
+  "name": "Kortrijk Logistics Hub",
+  "cap": "4.2 MWp",
+  "year": "2024",
+  "dur": "3 wk",
+  "img": "img/solar-nottuln.jpg",
+  "tag": {
+    "en": "Solar PV",
+    "fr": "Photovoltaïque",
+    "nl": "Zonne-energie"
+  },
+  "loc": {
+    "en": "Kortrijk, BE",
+    "fr": "Courtrai, BE",
+    "nl": "Kortrijk, BE"
+  },
+  "scope": {
+    "en": "PV thermographic survey",
+    "fr": "Thermographie PV",
+    "nl": "Thermografie PV"
+  },
+  "desc": {
+    "en": "Full-array drone thermography over 9,800 modules after a first-year yield shortfall, with string-level I-V tracing on every flagged section.",
+    "fr": "Thermographie par drone sur 9 800 modules après un déficit de production la première année, avec relevé de courbes I-V sur chaque zone signalée.",
+    "nl": "Thermografie met drone over 9.800 panelen na een tegenvallende opbrengst in het eerste jaar, met I-V-metingen op elke gemarkeerde zone."
+  },
+  "list": {
+    "en": [
+      "Drone thermography, 9,800 modules",
+      "I-V curve tracing on flagged strings",
+      "Warranty claim documentation"
+    ],
+    "fr": [
+      "Thermographie drone, 9 800 modules",
+      "Courbes I-V sur les chaînes signalées",
+      "Dossier de réclamation en garantie"
+    ],
+    "nl": [
+      "Dronethermografie, 9.800 panelen",
+      "I-V-curves op gemarkeerde strings",
+      "Dossier voor garantieclaim"
+    ]
+  }
+}

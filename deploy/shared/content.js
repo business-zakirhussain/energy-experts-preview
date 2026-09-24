@@ -1,5 +1,5 @@
-/* Shared content for every design — one place to edit copy and projects.
-   Languages: English (source), French, Dutch. */
+/* UI copy. Hand-maintained - NOT editable in the CMS.
+   Projects and news live in content/ and are generated into data.js by build.py. */
 var T = {
  "en": {
   "skip": "Skip to content",
@@ -127,9 +127,9 @@ var T = {
   "f6": "I agree that Energy Experts BV may store and use these details to answer my enquiry, as described in the privacy policy.",
   "f7": "Send enquiry",
   "f8": "Demo form &mdash; nothing is sent",
-  "mapH": "Map not loaded",
-  "mapP": "The map is served by OpenStreetMap, which receives your IP address. It loads only if you allow it.",
-  "mapB": "Load the map",
+  "mapH": "Where to find us",
+  "mapP": "Our office in Grimbergen, just north of Brussels.",
+  "mapB": "Open in Maps",
   "brandSub2": "Besloten Vennootschap",
   "fEnt": "Enterprise no.",
   "fVat": "VAT",
@@ -150,16 +150,16 @@ var T = {
   "fCk": "Cookie settings",
   "fBtm": "Design concept &middot; placeholder content",
   "ckH": "We keep this simple",
-  "ckP": "This site sets no tracking cookies. We only ask before loading the map, which is served by OpenStreetMap and would receive your IP address. Read the <a href=\"#\">privacy policy</a>.",
+  "ckP": "This site sets no cookies and loads nothing from other companies. We only want to remember your language and your light or dark choice in this browser. Read the <a href=\"#\">privacy policy</a>.",
   "ckAll": "Accept all",
   "ckNone": "Reject all",
   "ckCust": "Choose what loads",
   "pfH": "What loads on this site",
   "pfP": "Nothing in the second and third group loads until you switch it on. You can change this at any time from the footer.",
   "pf1h": "Strictly necessary",
-  "pf1p": "Your language and theme choice, stored in your browser. Never shared.",
-  "pf2h": "Map",
-  "pf2p": "Loads map tiles from OpenStreetMap, which receives your IP address.",
+  "pf1p": "Nothing. This site needs no cookie in order to work.",
+  "pf2h": "Remember language and theme",
+  "pf2p": "Stores your language and your light or dark choice in this browser. Never shared.",
   "pf3h": "Statistics",
   "pf3p": "Anonymous visit counts so we know which pages are read. No cookie, no personal data.",
   "pfSave": "Save choices",
@@ -230,7 +230,7 @@ var T = {
   "msH": "Our mission",
   "msP": "To make every installation we touch safer, simpler to certify and cheaper to insure — by putting an independent engineer between the contractor and the sign-off.",
   "ptH": "Partners who trust us",
-  "ptSub": "Developers, grid operators and EPC contractors across the Benelux, France and Spain.",
+  "ptSub": "Developers, grid operators and EPC contractors across the Benelux and France.",
   "certBtn": "Our certifications",
   "moreInfo": "More information",
   "getInTouch": "Get in touch",
@@ -267,7 +267,16 @@ var T = {
   "cta2H": "Ready for your next project?",
   "cta2P": "One call is enough to scope it. We will tell you honestly whether you need us.",
   "locH": "Location of our team",
-  "fSocial": "Follow us"
+  "fSocial": "Follow us",
+  "ptDev": "Developer",
+  "ptDev2": "Developer",
+  "ptDev3": "Developer",
+  "ptGrid": "Grid operator",
+  "ptMarine": "Marine contractor",
+  "ptEpc": "Offshore EPC",
+  "ptUtil": "Utility",
+  "ptUtil2": "Utility",
+  "ptNote": "Placeholder names — replaced with your real clients once they agree to be listed."
  },
  "fr": {
   "skip": "Aller au contenu",
@@ -407,9 +416,9 @@ var T = {
   "errMail": "Merci de vérifier l’adresse e-mail.",
   "errMsg": "Merci de décrire l’installation.",
   "errConsent": "Merci de cocher la case de consentement.",
-  "mapH": "Carte non chargée",
-  "mapP": "La carte est fournie par OpenStreetMap, qui reçoit votre adresse IP. Elle ne se charge qu’avec votre accord.",
-  "mapB": "Charger la carte",
+  "mapH": "Où nous trouver",
+  "mapP": "Notre bureau à Grimbergen, juste au nord de Bruxelles.",
+  "mapB": "Ouvrir dans Maps",
   "fEnt": "N° d’entreprise",
   "fVat": "TVA",
   "fNav": "Plan du site",
@@ -423,16 +432,16 @@ var T = {
   "fCk": "Paramètres des cookies",
   "fBtm": "Concept graphique · contenu provisoire",
   "ckH": "Nous restons simples",
-  "ckP": "Ce site ne dépose aucun cookie de suivi. Nous demandons uniquement votre accord avant de charger la carte, fournie par OpenStreetMap, qui recevrait votre adresse IP. Consultez la <a href=\"#\">politique de confidentialité</a>.",
+  "ckP": "Ce site ne dépose aucun cookie et ne charge rien provenant d’autres sociétés. Nous souhaitons uniquement mémoriser votre langue et votre choix clair ou sombre dans ce navigateur. Consultez la <a href=\"#\">politique de confidentialité</a>.",
   "ckAll": "Tout accepter",
   "ckNone": "Tout refuser",
   "ckCust": "Choisir ce qui se charge",
   "pfH": "Ce qui se charge sur ce site",
   "pfP": "Rien dans les deuxième et troisième groupes ne se charge tant que vous ne l’activez pas. Vous pouvez modifier ce choix à tout moment depuis le pied de page.",
   "pf1h": "Strictement nécessaire",
-  "pf1p": "Votre choix de langue et de thème, conservé dans votre navigateur. Jamais partagé.",
-  "pf2h": "Carte",
-  "pf2p": "Charge les tuiles depuis OpenStreetMap, qui reçoit votre adresse IP.",
+  "pf1p": "Rien. Ce site n’a besoin d’aucun cookie pour fonctionner.",
+  "pf2h": "Mémoriser la langue et le thème",
+  "pf2p": "Conserve votre langue et votre choix clair ou sombre dans ce navigateur. Jamais partagé.",
   "pf3h": "Statistiques",
   "pf3p": "Comptage anonyme des visites pour savoir quelles pages sont lues. Sans cookie ni donnée personnelle.",
   "pfSave": "Enregistrer",
@@ -498,7 +507,7 @@ var T = {
   "msH": "Notre mission",
   "msP": "Rendre chaque installation que nous touchons plus sûre, plus simple à certifier et moins coûteuse à assurer — en plaçant un ingénieur indépendant entre l’entrepreneur et la réception.",
   "ptH": "Ils nous font confiance",
-  "ptSub": "Développeurs, gestionnaires de réseau et entreprises EPC au Benelux, en France et en Espagne.",
+  "ptSub": "Développeurs, gestionnaires de réseau et entreprises EPC au Benelux et en France.",
   "certBtn": "Nos certifications",
   "moreInfo": "Plus d’informations",
   "getInTouch": "Contactez-nous",
@@ -535,7 +544,16 @@ var T = {
   "cta2H": "Prêt pour votre prochain projet ?",
   "cta2P": "Un appel suffit pour cadrer le périmètre. Nous vous dirons honnêtement si vous avez besoin de nous.",
   "locH": "Où nous trouver",
-  "fSocial": "Suivez-nous"
+  "fSocial": "Suivez-nous",
+  "ptDev": "Développeur",
+  "ptDev2": "Développeur",
+  "ptDev3": "Développeur",
+  "ptGrid": "Gestionnaire de réseau",
+  "ptMarine": "Entreprise maritime",
+  "ptEpc": "EPC offshore",
+  "ptUtil": "Énergéticien",
+  "ptUtil2": "Énergéticien",
+  "ptNote": "Noms fictifs — remplacés par vos vrais clients dès qu’ils acceptent d’être cités."
  },
  "nl": {
   "skip": "Naar inhoud",
@@ -766,7 +784,7 @@ var T = {
   "msH": "Onze missie",
   "msP": "Elke installatie die wij behandelen veiliger, eenvoudiger te keuren en goedkoper te verzekeren maken — door een onafhankelijke ingenieur tussen de aannemer en de goedkeuring te plaatsen.",
   "ptH": "Partners die ons vertrouwen",
-  "ptSub": "Ontwikkelaars, netbeheerders en EPC-aannemers in de Benelux, Frankrijk en Nederland.",
+  "ptSub": "Ontwikkelaars, netbeheerders en EPC-aannemers in de Benelux en Frankrijk.",
   "certBtn": "Onze erkenningen",
   "moreInfo": "Meer informatie",
   "getInTouch": "Neem contact op",
@@ -803,334 +821,15 @@ var T = {
   "cta2H": "Klaar voor uw volgende project?",
   "cta2P": "Eén gesprek volstaat om de opdracht af te bakenen. Wij zeggen u eerlijk of u ons nodig hebt.",
   "locH": "Waar u ons vindt",
-  "fSocial": "Volg ons"
+  "fSocial": "Volg ons",
+  "ptDev": "Ontwikkelaar",
+  "ptDev2": "Ontwikkelaar",
+  "ptDev3": "Ontwikkelaar",
+  "ptGrid": "Netbeheerder",
+  "ptMarine": "Maritiem aannemer",
+  "ptEpc": "Offshore EPC",
+  "ptUtil": "Energiebedrijf",
+  "ptUtil2": "Energiebedrijf",
+  "ptNote": "Fictieve namen — vervangen door uw echte klanten zodra zij akkoord gaan om vermeld te worden."
  }
 };
-
-var PROJECTS = [
- {
-  "name": "Norther OWF",
-  "cap": "370 MW",
-  "year": "2024",
-  "dur": "14 mo",
-  "loc": {
-   "en": "Belgian North Sea",
-   "fr": "Mer du Nord belge",
-   "nl": "Belgische Noordzee"
-  },
-  "tag": {
-   "en": "Offshore wind",
-   "fr": "Éolien offshore",
-   "nl": "Offshore wind"
-  },
-  "scope": {
-   "en": "Array cable QA/QC",
-   "fr": "QA/QC câbles inter-éoliennes",
-   "nl": "QA/QC parkkabels"
-  },
-  "desc": {
-   "en": "Witness and documentation of 66 kV array cable terminations across 44 turbine positions, including pull-in supervision and post-installation testing.",
-   "fr": "Témoin et documentation des raccordements de câbles 66 kV sur 44 positions d’éoliennes, avec supervision du tirage et essais après installation.",
-   "nl": "Toezicht op en documentatie van 66 kV-kabelmoffen op 44 turbineposities, inclusief begeleiding van het intrekken en beproeving na installatie."
-  },
-  "list": {
-   "en": [
-    "Termination witness, 44 positions",
-    "VLF and tan delta testing",
-    "Punch list close-out with the EPC"
-   ],
-   "fr": [
-    "Témoin de raccordement, 44 positions",
-    "Essais VLF et tan delta",
-    "Clôture des réserves avec l’EPC"
-   ],
-   "nl": [
-    "Toezicht op moffen, 44 posities",
-    "VLF- en tan delta-metingen",
-    "Afwerking restpunten met de EPC"
-   ]
-  },
-  "img": "img/wind-norther.jpg"
- },
- {
-  "name": "Rentel OWF",
-  "cap": "309 MW",
-  "year": "2023",
-  "dur": "9 mo",
-  "loc": {
-   "en": "Belgian North Sea",
-   "fr": "Mer du Nord belge",
-   "nl": "Belgische Noordzee"
-  },
-  "tag": {
-   "en": "Offshore wind",
-   "fr": "Éolien offshore",
-   "nl": "Offshore wind"
-  },
-  "scope": {
-   "en": "Commissioning support",
-   "fr": "Assistance mise en service",
-   "nl": "Ondersteuning indienststelling"
-  },
-  "desc": {
-   "en": "HV commissioning support on the offshore substation, covering protection settings verification, earthing survey and energisation readiness.",
-   "fr": "Assistance à la mise en service HT du poste offshore : vérification des réglages de protection, relevé des terres et revue de mise sous tension.",
-   "nl": "Ondersteuning bij de HS-indienststelling van de offshore post: controle van beveiligingsinstellingen, aardingsonderzoek en gereedheid voor inschakeling."
-  },
-  "list": {
-   "en": [
-    "Protection settings verification",
-    "Earthing and bonding survey",
-    "Energisation readiness review"
-   ],
-   "fr": [
-    "Vérification des réglages de protection",
-    "Relevé des terres et liaisons",
-    "Revue de mise sous tension"
-   ],
-   "nl": [
-    "Controle van beveiligingsinstellingen",
-    "Onderzoek aarding en vereffening",
-    "Nazicht gereedheid voor inschakeling"
-   ]
-  },
-  "img": "img/oss-blighbank.jpg"
- },
- {
-  "name": "Kortrijk Logistics Hub",
-  "cap": "4.2 MWp",
-  "year": "2024",
-  "dur": "3 wk",
-  "loc": {
-   "en": "Kortrijk, BE",
-   "fr": "Courtrai, BE",
-   "nl": "Kortrijk, BE"
-  },
-  "tag": {
-   "en": "Solar PV",
-   "fr": "Photovoltaïque",
-   "nl": "Zonne-energie"
-  },
-  "scope": {
-   "en": "PV thermographic survey",
-   "fr": "Thermographie PV",
-   "nl": "Thermografie PV"
-  },
-  "desc": {
-   "en": "Full-array drone thermography over 9,800 modules after a first-year yield shortfall, with string-level I-V tracing on every flagged section.",
-   "fr": "Thermographie par drone sur 9 800 modules après un déficit de production la première année, avec relevé de courbes I-V sur chaque zone signalée.",
-   "nl": "Thermografie met drone over 9.800 panelen na een tegenvallende opbrengst in het eerste jaar, met I-V-metingen op elke gemarkeerde zone."
-  },
-  "list": {
-   "en": [
-    "Drone thermography, 9,800 modules",
-    "I-V curve tracing on flagged strings",
-    "Warranty claim documentation"
-   ],
-   "fr": [
-    "Thermographie drone, 9 800 modules",
-    "Courbes I-V sur les chaînes signalées",
-    "Dossier de réclamation en garantie"
-   ],
-   "nl": [
-    "Dronethermografie, 9.800 panelen",
-    "I-V-curves op gemarkeerde strings",
-    "Dossier voor garantieclaim"
-   ]
-  },
-  "img": "img/solar-nottuln.jpg"
- },
- {
-  "name": "Zeebrugge Substation",
-  "cap": "150 kV",
-  "year": "2023",
-  "dur": "6 wk",
-  "loc": {
-   "en": "Zeebrugge, BE",
-   "fr": "Zeebruges, BE",
-   "nl": "Zeebrugge, BE"
-  },
-  "tag": {
-   "en": "Grid",
-   "fr": "Réseau",
-   "nl": "Net"
-  },
-  "scope": {
-   "en": "Conformity classification",
-   "fr": "Classification de conformité",
-   "nl": "Conformiteitskeuring"
-  },
-  "desc": {
-   "en": "AREI/RGIE conformity classification of a 150 kV connection cabin, preparing the technical dossier for the accredited inspection body.",
-   "fr": "Classification de conformité RGIE d’une cabine de raccordement 150 kV, avec constitution du dossier technique pour l’organisme agréé.",
-   "nl": "AREI-conformiteitskeuring van een aansluitcabine van 150 kV, met opmaak van het technisch dossier voor het erkende keuringsorganisme."
-  },
-  "list": {
-   "en": [
-    "Zone classification to AREI/RGIE",
-    "Single-line diagram reconstruction",
-    "Dossier accepted first submission"
-   ],
-   "fr": [
-    "Classification des zones selon le RGIE",
-    "Reconstitution du schéma unifilaire",
-    "Dossier accepté au premier dépôt"
-   ],
-   "nl": [
-    "Zoneclassificatie volgens AREI",
-    "Reconstructie van het eendraadschema",
-    "Dossier in één keer aanvaard"
-   ]
-  },
-  "img": "img/hv-switchgear-1.jpg"
- },
- {
-  "name": "Parc Solaire Occitanie",
-  "cap": "12 MWp",
-  "year": "2025",
-  "dur": "5 wk",
-  "loc": {
-   "en": "Toulouse, FR",
-   "fr": "Toulouse, FR",
-   "nl": "Toulouse, FR"
-  },
-  "tag": {
-   "en": "Solar PV",
-   "fr": "Photovoltaïque",
-   "nl": "Zonne-energie"
-  },
-  "scope": {
-   "en": "IEC 62446 commissioning",
-   "fr": "Mise en service IEC 62446",
-   "nl": "Indienststelling IEC 62446"
-  },
-  "desc": {
-   "en": "Full IEC 62446-1 commissioning campaign on a ground-mount park, delivered in French for the client's contrôleur technique.",
-   "fr": "Campagne complète de mise en service IEC 62446-1 sur une centrale au sol, remise en français pour le contrôleur technique du client.",
-   "nl": "Volledige indienststellingscampagne volgens IEC 62446-1 op een grondgebonden park, opgeleverd in het Frans voor de contrôleur technique van de klant."
-  },
-  "list": {
-   "en": [
-    "Insulation and continuity testing",
-    "Inverter parameter verification",
-    "Commissioning report in French"
-   ],
-   "fr": [
-    "Essais d’isolement et de continuité",
-    "Vérification des paramètres onduleurs",
-    "Rapport de mise en service en français"
-   ],
-   "nl": [
-    "Isolatie- en continuïteitsmetingen",
-    "Controle van omvormerparameters",
-    "Opleveringsrapport in het Frans"
-   ]
-  },
-  "img": "img/solar-dulmen.jpg"
- },
- {
-  "name": "Planta Solar Aragón",
-  "cap": "28 MWp",
-  "year": "2025",
-  "dur": "11 mo",
-  "loc": {
-   "en": "Zaragoza, ES",
-   "fr": "Saragosse, ES",
-   "nl": "Zaragoza, ES"
-  },
-  "tag": {
-   "en": "Solar PV",
-   "fr": "Photovoltaïque",
-   "nl": "Zonne-energie"
-  },
-  "scope": {
-   "en": "Owner's engineer",
-   "fr": "Ingénieur du maître d’ouvrage",
-   "nl": "Ingenieur van de bouwheer"
-  },
-  "desc": {
-   "en": "Owner's engineer through construction and handover, from design review to provisional acceptance, reporting in Spanish and English.",
-   "fr": "Ingénieur du maître d’ouvrage pendant la construction et la réception, de la revue de conception à la réception provisoire, en espagnol et en anglais.",
-   "nl": "Ingenieur van de bouwheer tijdens bouw en oplevering, van ontwerpnazicht tot voorlopige oplevering, met rapportering in het Spaans en het Engels."
-  },
-  "list": {
-   "en": [
-    "Design review and approvals",
-    "Monthly site surveillance",
-    "Provisional acceptance punch list"
-   ],
-   "fr": [
-    "Revue de conception et validations",
-    "Surveillance mensuelle du chantier",
-    "Réserves de réception provisoire"
-   ],
-   "nl": [
-    "Ontwerpnazicht en goedkeuringen",
-    "Maandelijks werftoezicht",
-    "Restpuntenlijst voorlopige oplevering"
-   ]
-  },
-  "img": "img/wind-thornton-air.jpg"
- }
-];
-
-/* ---- wording updated now that the map is a bundled image: the site makes
-        no third-party request at all, so consent covers browser storage only ---- */
-Object.assign(T.en, {
-  mapB: "Open in Maps", mapH: "Where to find us", mapP: "Our office in Grimbergen, just north of Brussels.",
-  ckP: 'This site sets no cookies and loads nothing from other companies. We only want to remember your language and your light or dark choice in this browser. Read the <a href="#">privacy policy</a>.',
-  pf1h: "Strictly necessary", pf1p: "Nothing. This site needs no cookie in order to work.",
-  pf2h: "Remember language and theme", pf2p: "Stores your language and your light or dark choice in this browser. Never shared."
-});
-Object.assign(T.fr, {
-  mapB: "Ouvrir dans Maps", mapH: "Où nous trouver", mapP: "Notre bureau à Grimbergen, juste au nord de Bruxelles.",
-  ckP: 'Ce site ne dépose aucun cookie et ne charge rien provenant d’autres sociétés. Nous souhaitons uniquement mémoriser votre langue et votre choix clair ou sombre dans ce navigateur. Consultez la <a href="#">politique de confidentialité</a>.',
-  pf1h: "Strictement nécessaire", pf1p: "Rien. Ce site n’a besoin d’aucun cookie pour fonctionner.",
-  pf2h: "Mémoriser la langue et le thème", pf2p: "Conserve votre langue et votre choix clair ou sombre dans ce navigateur. Jamais partagé."
-});
-
-/* ============================================================
-   NEWS — the second collection the client edits himself.
-   Same shape as PROJECTS: add an entry here and it appears on
-   the site in all three languages.
-   ============================================================ */
-var NEWS = [
- { date: "2026-08-19", cat: { en: "Offshore", fr: "Offshore", nl: "Offshore" }, read: "6",
-   title: { en: "Why 66 kV array cables fail at the termination",
-            fr: "Pourquoi les câbles 66 kV cèdent au raccordement",
-            nl: "Waarom 66 kV-parkkabels falen bij de mof" },
-   excerpt: { en: "Reading the tan delta curve before it becomes a warranty claim.",
-              fr: "Lire la courbe tan delta avant qu’elle ne devienne une réclamation en garantie.",
-              nl: "De tan delta-curve lezen voordat het een garantiedossier wordt." },
-   img: "img/vessel-cable.jpg" },
- { date: "2026-07-02", cat: { en: "Regulation", fr: "Réglementation", nl: "Regelgeving" }, read: "4",
-   title: { en: "AREI/RGIE 2025: what changed for HV cabins",
-            fr: "RGIE 2025 : ce qui change pour les cabines HT",
-            nl: "AREI 2025: wat verandert er voor HS-cabines" },
-   excerpt: { en: "The revised zone classification rules, explained for site managers.",
-              fr: "Les nouvelles règles de classification des zones, expliquées aux responsables de site.",
-              nl: "De herziene regels voor zoneclassificatie, uitgelegd voor werfleiders." },
-   img: "img/hv-switchgear-1.jpg" },
- { date: "2026-05-28", cat: { en: "Solar", fr: "Solaire", nl: "Zonne-energie" }, read: "5",
-   title: { en: "Thermography is not an inspection",
-            fr: "La thermographie n’est pas une inspection",
-            nl: "Thermografie is geen inspectie" },
-   excerpt: { en: "A hot spot is a symptom. The I-V trace tells you the cause.",
-              fr: "Un point chaud est un symptôme. La courbe I-V en donne la cause.",
-              nl: "Een warm punt is een symptoom. De I-V-curve geeft de oorzaak." },
-   img: "img/solar-nottuln.jpg" }
-];
-
-/* placeholder client wall — invented names, never real companies */
-Object.assign(T.en, { ptDev:"Developer", ptDev2:"Developer", ptDev3:"Developer", ptGrid:"Grid operator",
-  ptMarine:"Marine contractor", ptEpc:"Offshore EPC", ptUtil:"Utility", ptUtil2:"Utility",
-  ptSub:"Developers, grid operators and EPC contractors across the Benelux and France.",
-  ptNote:"Placeholder names — replaced with your real clients once they agree to be listed." });
-Object.assign(T.fr, { ptDev:"Développeur", ptDev2:"Développeur", ptDev3:"Développeur", ptGrid:"Gestionnaire de réseau",
-  ptMarine:"Entreprise maritime", ptEpc:"EPC offshore", ptUtil:"Énergéticien", ptUtil2:"Énergéticien",
-  ptSub:"Développeurs, gestionnaires de réseau et entreprises EPC au Benelux et en France.",
-  ptNote:"Noms fictifs — remplacés par vos vrais clients dès qu’ils acceptent d’être cités." });
-Object.assign(T.nl, { ptDev:"Ontwikkelaar", ptDev2:"Ontwikkelaar", ptDev3:"Ontwikkelaar", ptGrid:"Netbeheerder",
-  ptMarine:"Maritiem aannemer", ptEpc:"Offshore EPC", ptUtil:"Energiebedrijf", ptUtil2:"Energiebedrijf",
-  ptSub:"Ontwikkelaars, netbeheerders en EPC-aannemers in de Benelux en Frankrijk.",
-  ptNote:"Fictieve namen — vervangen door uw echte klanten zodra zij akkoord gaan om vermeld te worden." });

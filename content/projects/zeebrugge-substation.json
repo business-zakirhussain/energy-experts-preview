@@ -1,0 +1,45 @@
+{
+  "order": 4,
+  "name": "Zeebrugge Substation",
+  "cap": "150 kV",
+  "year": "2023",
+  "dur": "6 wk",
+  "img": "img/hv-switchgear-1.jpg",
+  "tag": {
+    "en": "Grid",
+    "fr": "Réseau",
+    "nl": "Net"
+  },
+  "loc": {
+    "en": "Zeebrugge, BE",
+    "fr": "Zeebruges, BE",
+    "nl": "Zeebrugge, BE"
+  },
+  "scope": {
+    "en": "Conformity classification",
+    "fr": "Classification de conformité",
+    "nl": "Conformiteitskeuring"
+  },
+  "desc": {
+    "en": "AREI/RGIE conformity classification of a 150 kV connection cabin, preparing the technical dossier for the accredited inspection body.",
+    "fr": "Classification de conformité RGIE d’une cabine de raccordement 150 kV, avec constitution du dossier technique pour l’organisme agréé.",
+    "nl": "AREI-conformiteitskeuring van een aansluitcabine van 150 kV, met opmaak van het technisch dossier voor het erkende keuringsorganisme."
+  },
+  "list": {
+    "en": [
+      "Zone classification to AREI/RGIE",
+      "Single-line diagram reconstruction",
+      "Dossier accepted first submission"
+    ],
+    "fr": [
+      "Classification des zones selon le RGIE",
+      "Reconstitution du schéma unifilaire",
+      "Dossier accepté au premier dépôt"
+    ],
+    "nl": [
+      "Zoneclassificatie volgens AREI",
+      "Reconstructie van het eendraadschema",
+      "Dossier in één keer aanvaard"
+    ]
+  }
+}

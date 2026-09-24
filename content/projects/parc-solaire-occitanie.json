@@ -1,0 +1,45 @@
+{
+  "order": 5,
+  "name": "Parc Solaire Occitanie",
+  "cap": "12 MWp",
+  "year": "2025",
+  "dur": "5 wk",
+  "img": "img/solar-dulmen.jpg",
+  "tag": {
+    "en": "Solar PV",
+    "fr": "Photovoltaïque",
+    "nl": "Zonne-energie"
+  },
+  "loc": {
+    "en": "Toulouse, FR",
+    "fr": "Toulouse, FR",
+    "nl": "Toulouse, FR"
+  },
+  "scope": {
+    "en": "IEC 62446 commissioning",
+    "fr": "Mise en service IEC 62446",
+    "nl": "Indienststelling IEC 62446"
+  },
+  "desc": {
+    "en": "Full IEC 62446-1 commissioning campaign on a ground-mount park, delivered in French for the client's contrôleur technique.",
+    "fr": "Campagne complète de mise en service IEC 62446-1 sur une centrale au sol, remise en français pour le contrôleur technique du client.",
+    "nl": "Volledige indienststellingscampagne volgens IEC 62446-1 op een grondgebonden park, opgeleverd in het Frans voor de contrôleur technique van de klant."
+  },
+  "list": {
+    "en": [
+      "Insulation and continuity testing",
+      "Inverter parameter verification",
+      "Commissioning report in French"
+    ],
+    "fr": [
+      "Essais d’isolement et de continuité",
+      "Vérification des paramètres onduleurs",
+      "Rapport de mise en service en français"
+    ],
+    "nl": [
+      "Isolatie- en continuïteitsmetingen",
+      "Controle van omvormerparameters",
+      "Opleveringsrapport in het Frans"
+    ]
+  }
+}

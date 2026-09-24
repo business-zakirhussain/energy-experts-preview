@@ -1,0 +1,20 @@
+{
+  "date": "2026-05-28",
+  "read": "5",
+  "img": "img/solar-nottuln.jpg",
+  "cat": {
+    "en": "Solar",
+    "fr": "Solaire",
+    "nl": "Zonne-energie"
+  },
+  "title": {
+    "en": "Thermography is not an inspection",
+    "fr": "La thermographie n’est pas une inspection",
+    "nl": "Thermografie is geen inspectie"
+  },
+  "excerpt": {
+    "en": "A hot spot is a symptom. The I-V trace tells you the cause.",
+    "fr": "Un point chaud est un symptôme. La courbe I-V en donne la cause.",
+    "nl": "Een warm punt is een symptoom. De I-V-curve geeft de oorzaak."
+  }
+}

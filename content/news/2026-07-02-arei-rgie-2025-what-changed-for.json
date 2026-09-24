@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-02",
+  "read": "4",
+  "img": "img/hv-switchgear-1.jpg",
+  "cat": {
+    "en": "Regulation",
+    "fr": "Réglementation",
+    "nl": "Regelgeving"
+  },
+  "title": {
+    "en": "AREI/RGIE 2025: what changed for HV cabins",
+    "fr": "RGIE 2025 : ce qui change pour les cabines HT",
+    "nl": "AREI 2025: wat verandert er voor HS-cabines"
+  },
+  "excerpt": {
+    "en": "The revised zone classification rules, explained for site managers.",
+    "fr": "Les nouvelles règles de classification des zones, expliquées aux responsables de site.",
+    "nl": "De herziene regels voor zoneclassificatie, uitgelegd voor werfleiders."
+  }
+}
