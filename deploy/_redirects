@@ -1,0 +1,3 @@
+# Short, memorable address for the client: <site>/admin -> the CMS login
+/admin   https://app.pagescms.org   302
+/admin/  https://app.pagescms.org   302

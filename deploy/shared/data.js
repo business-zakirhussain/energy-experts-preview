@@ -221,7 +221,7 @@ var PROJECTS = [
   }
  },
  {
-  "name": "Planta Solar Aragón",
+  "name": "Zonnepark Flevoland",
   "cap": "28 MWp",
   "year": "2025",
   "dur": "11 mo",
@@ -232,9 +232,9 @@ var PROJECTS = [
    "nl": "Zonne-energie"
   },
   "loc": {
-   "en": "Zaragoza, ES",
-   "fr": "Saragosse, ES",
-   "nl": "Zaragoza, ES"
+   "en": "Flevoland, NL",
+   "fr": "Flevoland, NL",
+   "nl": "Flevoland, NL"
   },
   "scope": {
    "en": "Owner's engineer",
@@ -242,9 +242,9 @@ var PROJECTS = [
    "nl": "Ingenieur van de bouwheer"
   },
   "desc": {
-   "en": "Owner's engineer through construction and handover, from design review to provisional acceptance, reporting in Spanish and English.",
-   "fr": "Ingénieur du maître d’ouvrage pendant la construction et la réception, de la revue de conception à la réception provisoire, en espagnol et en anglais.",
-   "nl": "Ingenieur van de bouwheer tijdens bouw en oplevering, van ontwerpnazicht tot voorlopige oplevering, met rapportering in het Spaans en het Engels."
+   "en": "Owner's engineer through construction and handover, from design review to provisional acceptance, reporting in Dutch and English.",
+   "fr": "Ingénieur du maître d’ouvrage pendant la construction et la réception, de la revue de conception à la réception provisoire, en néerlandais et en anglais.",
+   "nl": "Ingenieur van de bouwheer tijdens bouw en oplevering, van ontwerpnazicht tot voorlopige oplevering, met rapportering in het Nederlands en het Engels."
   },
   "list": {
    "en": [
