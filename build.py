@@ -117,7 +117,9 @@ HEAD = '''<meta charset="utf-8">
 <link rel="icon" href="favicon.png" sizes="256x256" type="image/png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta name="theme-color" content="#0B1C26">
-<meta name="description" content="Independent electrical design, classification and inspection for offshore wind, solar and industrial power systems. Belgium, France, Spain.">
+<meta name="description" content="Energy Experts offers specialized services in electrical design, offshore wind and solar energy for efficient, sustainable power solutions. Based in Grimbergen, Belgium.">
+<meta property="og:title" content="Energy Experts BV">
+<meta property="og:description" content="Electrical design, offshore wind and solar inspection. Grimbergen, Belgium.">
 <script>(function(){try{var t=localStorage.getItem("ee-theme");if(t)document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()</script>
 <link rel="stylesheet" href="shared/base.css">'''
 

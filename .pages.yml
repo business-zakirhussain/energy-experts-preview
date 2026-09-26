@@ -8,6 +8,10 @@ media:
   extensions: [jpg, jpeg, png, webp]
   rename: safe                # sanitise uploaded filenames
 
+settings:
+  commit:
+    identity: user            # record which person made each edit (audit trail)
+
 components:
   # One reusable trilingual field, referenced with `component:`.
   # EN required, FR/NL optional -- app.js falls back to EN via tr()/trList(),

@@ -209,3 +209,6 @@ html[data-theme="dark"] .map-wrap>img{filter:invert(1) hue-rotate(180deg) bright
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .js .rv{opacity:1;transform:none}
 }
+
+/* the hidden attribute must always win over component display rules */
+[hidden]{display:none!important}

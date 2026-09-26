@@ -61,3 +61,5 @@ office-map.jpg
   Rendered from openstreetmap.org tiles at build time and bundled with the
   site so the page makes no third-party request at run time.
   https://www.openstreetmap.org/copyright
+
+ee-*.jpg  Photos supplied by Energy Experts BV (from energyexpertsbv.com). All rights reserved.
