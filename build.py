@@ -96,6 +96,35 @@ def write_headers(pages):
     io.open(os.path.join(OUT, "_headers"), "w", encoding="utf-8").write(txt)
     print("built _headers (%d inline script hash(es))" % len(hashes))
 
+def load_site():
+    """content/site.json -- client names and certifications, editable in the CMS."""
+    fp = os.path.join(CONTENT, "site.json")
+    try:
+        with io.open(fp, encoding="utf-8") as f:
+            d = json.load(f)
+    except FileNotFoundError:
+        d = {}
+    except ValueError as e:
+        sys.exit("FATAL  bad JSON in content/site.json: %s" % e)
+    d.setdefault("clients", []); d.setdefault("certifications", [])
+    d["clients"] = [c for c in d["clients"] if (c or {}).get("name", "").strip()]
+    d["certifications"] = [c for c in d["certifications"] if (c or "").strip()]
+    return d
+
+def esc(t):
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+def render_site(html, site):
+    """Fill the client wall and standards strip; hide a block whose list is empty."""
+    cards = "".join('<div class="logo glass">%s<small data-i18n="cl%d">%s</small></div>'
+                    % (esc(c["name"]), i, esc(((c.get("type") or {}).get("en") or "")))
+                    for i, c in enumerate(site["clients"]))
+    items = "".join("<span>%s</span>" % esc(c) for c in site["certifications"])
+    html = html.replace("<!-- @clients -->", cards).replace("<!-- @certmarq -->", items + items)
+    def gate(m):
+        return ('hidden data-if="%s"' % m.group(1)) if not site.get(m.group(1)) else m.group(0)
+    return re.sub(r'data-if="(\w+)"', gate, html)
+
 def build_data_js():
     """Generate shared/data.js from the content collections."""
     projects = load_collection("projects", lambda p: (p.get("order", 999), p.get("name", "")))
@@ -106,6 +135,9 @@ def build_data_js():
           "var PROJECTS = %s;\nvar NEWS = %s;\n"
           % (json.dumps(projects, ensure_ascii=False, indent=1),
              json.dumps(news,     ensure_ascii=False, indent=1)))
+    labels = {L: {"cl%d" % i: ((c.get("type") or {}).get(L) or (c.get("type") or {}).get("en") or "")
+                  for i, c in enumerate(SITE["clients"])} for L in ("en", "fr", "nl")}
+    js += "".join("Object.assign(T.%s, %s);\n" % (L, json.dumps(v, ensure_ascii=False)) for L, v in labels.items() if v)
     io.open(os.path.join(SH, "data.js"), "w", encoding="utf-8").write(js)
     print("built shared/data.js %d bytes: %d projects, %d news"
           % (len(js.encode()), len(projects), len(news)))
@@ -149,7 +181,7 @@ RIBBON = '''<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 <div class="ribbon">Design concept for <b>Energy Experts BV</b> &middot; placeholder content &middot; not a live site</div>'''
 
 LEGAL = '''<b>Energy Experts BV</b><br>Albrecht Rodenbachlaan 29, 1850 Grimbergen<br>
-<span data-i18n="fEnt">Enterprise no.</span> BE 0XXX.XXX.XXX &middot; <span data-i18n="fVat">VAT</span> BE 0XXX.XXX.XXX &middot; RPR Brussel'''
+<span data-i18n="fEnt">Enterprise no.</span> 1024.608.228 &middot; <span data-i18n="fVat">VAT</span> BE 1024.608.228 &middot; RPR Brussel'''
 
 FOOT_LINKS = '''<div><h4 data-i18n="fNav">Site</h4><a href="#services" data-i18n="nav1b">Services</a><a href="#sectors" data-i18n="nav6b">Sectors</a><a href="#projects" data-i18n="nav2b">Projects</a><a href="#approach" data-i18n="nav3b">Approach</a></div>
 <div><h4 data-i18n="fComp">Company</h4><a href="#about" data-i18n="nav4b">About</a><a href="#faq" data-i18n="fFaq">FAQ</a><a href="#contact" data-i18n="nav5b">Contact</a><a href="#" data-i18n="fCareer">Careers</a></div>
@@ -165,6 +197,7 @@ REPL = {
   "@form": rd(os.path.join(SH, "form.html")),
   "@map": rd(os.path.join(SH, "map.html")),
 }
+SITE = load_site()
 process_uploads()
 build_data_js()
 built = 0
@@ -173,6 +206,7 @@ for fn in sorted(os.listdir(SRC)):
     if not fn.endswith(".html"): continue
     html = rd(os.path.join(SRC, fn))
     for k, v in REPL.items(): html = html.replace("<!-- %s -->" % k, v)
+    html = render_site(html, SITE)
     left = re.findall(r"<!-- @\w+ -->", html)
     if left: print("WARN unknown markers in", fn, left)
     io.open(os.path.join(OUT, fn), "w", encoding="utf-8").write(html)

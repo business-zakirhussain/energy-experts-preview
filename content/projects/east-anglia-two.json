@@ -1,0 +1,45 @@
+{
+  "order": 1,
+  "name": "East Anglia TWO",
+  "cap": "960 MW",
+  "year": "2028",
+  "dur": "2025–2028",
+  "img": "img/oss-sarens.jpg",
+  "tag": {
+    "en": "Offshore substation",
+    "fr": "Poste électrique en mer",
+    "nl": "Offshore hoogspanningsstation"
+  },
+  "loc": {
+    "en": "North Sea, off Suffolk (UK)",
+    "fr": "Mer du Nord, au large du Suffolk (R.-U.)",
+    "nl": "Noordzee, voor de kust van Suffolk (VK)"
+  },
+  "scope": {
+    "en": "Offshore substation package",
+    "fr": "Lot poste électrique en mer",
+    "nl": "Pakket offshore hoogspanningsstation"
+  },
+  "desc": {
+    "en": "Offshore substation for the 960 MW East Anglia TWO wind farm of ScottishPower Renewables (Iberdrola), 32.6 km off the Suffolk coast. Commercial operation is planned for the end of 2028.",
+    "fr": "Poste électrique en mer du parc éolien East Anglia TWO de 960 MW de ScottishPower Renewables (Iberdrola), à 32,6 km des côtes du Suffolk. La mise en service commerciale est prévue fin 2028.",
+    "nl": "Offshore hoogspanningsstation voor het windpark East Anglia TWO van 960 MW van ScottishPower Renewables (Iberdrola), 32,6 km voor de kust van Suffolk. De commerciële ingebruikname is gepland voor eind 2028."
+  },
+  "list": {
+    "en": [
+      "960 MW offshore wind farm",
+      "Client: ScottishPower Renewables (Iberdrola)",
+      "Commercial operation planned for end 2028"
+    ],
+    "fr": [
+      "Parc éolien en mer de 960 MW",
+      "Client : ScottishPower Renewables (Iberdrola)",
+      "Mise en service commerciale prévue fin 2028"
+    ],
+    "nl": [
+      "Offshore windpark van 960 MW",
+      "Opdrachtgever: ScottishPower Renewables (Iberdrola)",
+      "Commerciële ingebruikname gepland eind 2028"
+    ]
+  }
+}

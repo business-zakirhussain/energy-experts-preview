@@ -77,3 +77,23 @@ content:
       - { name: cat,     label: "Category",        component: trilingual_short }
       - { name: title,   label: "Headline",        component: trilingual_short }
       - { name: excerpt, label: "Summary",         component: trilingual_long }
+
+  - name: site
+    label: Clients & certifications
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: clients
+        label: Clients
+        description: "Each section stays hidden on the website until you add at least one entry. Only add clients who agreed to be named."
+        type: object
+        list: true
+        fields:
+          - { name: name, label: "Company name", type: string, required: true }
+          - { name: type, label: "Type (e.g. Grid operator)", component: trilingual_short }
+      - name: certifications
+        label: Certifications & standards
+        description: "Shown in the strip below the top image. Only list what you can prove."
+        type: string
+        list: true

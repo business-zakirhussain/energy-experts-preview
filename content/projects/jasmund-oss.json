@@ -1,0 +1,45 @@
+{
+  "order": 2,
+  "name": "Jasmund OSS",
+  "cap": "440 MVA",
+  "year": "2026",
+  "dur": "2025–2026",
+  "img": "img/ee-vessel-dusk.jpg",
+  "tag": {
+    "en": "Offshore substation",
+    "fr": "Poste électrique en mer",
+    "nl": "Offshore hoogspanningsstation"
+  },
+  "loc": {
+    "en": "Baltic Sea, northeast of Rügen (DE)",
+    "fr": "Mer Baltique, au nord-est de Rügen (DE)",
+    "nl": "Oostzee, ten noordoosten van Rügen (DE)"
+  },
+  "scope": {
+    "en": "Commissioning expert, primary & secondary systems",
+    "fr": "Expert mise en service, systèmes primaires et secondaires",
+    "nl": "Indienststellingsexpert, primaire en secundaire systemen"
+  },
+  "desc": {
+    "en": "Commissioning expertise for the primary and secondary systems of a 440 MVA, 220/66 kV topside, as subject-matter consultant on behalf of 50Hertz. Jasmund connects the Windanker wind farm and is the first offshore platform in the Baltic Sea for which 50Hertz is the transmission system operator.",
+    "fr": "Expertise en mise en service des systèmes primaires et secondaires d’une plateforme de 440 MVA, 220/66 kV, en tant que consultant spécialisé pour le compte de 50Hertz. Jasmund raccorde le parc éolien Windanker et est la première plateforme en mer Baltique dont 50Hertz est le gestionnaire de réseau.",
+    "nl": "Indienststellingsexpertise voor de primaire en secundaire systemen van een topside van 440 MVA, 220/66 kV, als vakinhoudelijk consultant in opdracht van 50Hertz. Jasmund sluit het windpark Windanker aan en is het eerste offshoreplatform in de Oostzee waarvoor 50Hertz de netbeheerder is."
+  },
+  "list": {
+    "en": [
+      "440 MVA · 220/66 kV topside",
+      "Primary & secondary systems commissioning",
+      "Client: 50Hertz Transmission (Windanker, Iberdrola)"
+    ],
+    "fr": [
+      "Plateforme 440 MVA · 220/66 kV",
+      "Mise en service des systèmes primaires et secondaires",
+      "Client : 50Hertz Transmission (Windanker, Iberdrola)"
+    ],
+    "nl": [
+      "Topside 440 MVA · 220/66 kV",
+      "Indienststelling primaire en secundaire systemen",
+      "Opdrachtgever: 50Hertz Transmission (Windanker, Iberdrola)"
+    ]
+  }
+}

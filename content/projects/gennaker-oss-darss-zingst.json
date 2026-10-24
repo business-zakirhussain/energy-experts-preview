@@ -1,0 +1,45 @@
+{
+  "order": 3,
+  "name": "Gennaker OSS Darß & Zingst",
+  "cap": "2 × 300 MVA",
+  "year": "2028",
+  "dur": "2026–2028",
+  "img": "img/ee-offshore-wind-sunset.jpg",
+  "tag": {
+    "en": "Offshore substation",
+    "fr": "Poste électrique en mer",
+    "nl": "Offshore hoogspanningsstation"
+  },
+  "loc": {
+    "en": "Baltic Sea, off Fischland-Darß-Zingst (DE)",
+    "fr": "Mer Baltique, au large de Fischland-Darß-Zingst (DE)",
+    "nl": "Oostzee, voor de kust van Fischland-Darß-Zingst (DE)"
+  },
+  "scope": {
+    "en": "HV client representative & commissioning expert",
+    "fr": "Représentant du client HT et expert mise en service",
+    "nl": "HS-klantvertegenwoordiger en indienststellingsexpert"
+  },
+  "desc": {
+    "en": "Client representative for the HV systems and commissioning expert for the primary and secondary systems of two 300 MVA, 220/66 kV topsides, on behalf of 50Hertz. The platforms connect Skyborn's Gennaker wind farm; commissioning is planned for 2028.",
+    "fr": "Représentant du client pour les systèmes HT et expert en mise en service des systèmes primaires et secondaires de deux plateformes de 300 MVA, 220/66 kV, pour le compte de 50Hertz. Les plateformes raccordent le parc éolien Gennaker de Skyborn ; la mise en service est prévue en 2028.",
+    "nl": "Klantvertegenwoordiger voor de HS-systemen en indienststellingsexpert voor de primaire en secundaire systemen van twee topsides van 300 MVA, 220/66 kV, in opdracht van 50Hertz. De platforms sluiten het windpark Gennaker van Skyborn aan; de indienststelling is gepland voor 2028."
+  },
+  "list": {
+    "en": [
+      "2 × 300 MVA · 220/66 kV topsides",
+      "HV systems client representative",
+      "Client: 50Hertz Transmission (Gennaker, Skyborn)"
+    ],
+    "fr": [
+      "2 plateformes 300 MVA · 220/66 kV",
+      "Représentant du client pour les systèmes HT",
+      "Client : 50Hertz Transmission (Gennaker, Skyborn)"
+    ],
+    "nl": [
+      "2 topsides 300 MVA · 220/66 kV",
+      "Klantvertegenwoordiger HS-systemen",
+      "Opdrachtgever: 50Hertz Transmission (Gennaker, Skyborn)"
+    ]
+  }
+}
