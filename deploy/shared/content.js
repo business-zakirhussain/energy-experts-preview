@@ -127,7 +127,7 @@ var T = {
   "pfAll": "Accept all",
   "mDur": "Duration",
   "mScope": "Scope delivered",
-  "sent": "Thank you — in a live site this would now be in your inbox.",
+  "sent": "Thank you. Your message has been sent and we will get back to you.",
   "errName": "Please add your name.",
   "errMail": "Please check the email address.",
   "errMsg": "Please describe the installation.",
@@ -190,7 +190,9 @@ var T = {
   "s4c": "FAT, HAT, SIT & SAT witnessing",
   "prjHint": "Select a project to see the details.",
   "ppTitle": "Privacy policy",
-  "ppBack": "Back to the website"
+  "ppBack": "Back to the website",
+  "sending": "Sending…",
+  "sendFail": "Your message could not be sent. Please email us directly at <a href=\"mailto:info@energyexpertsbv.com\">info@energyexpertsbv.com</a>."
  },
  "fr": {
   "skip": "Aller au contenu",
@@ -290,7 +292,7 @@ var T = {
   "f6": "J’accepte qu’Energy Experts BV conserve et utilise ces informations pour répondre à ma demande, comme décrit dans la <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">politique de confidentialité</a>.",
   "f7": "Envoyer la demande",
   "f8": "Formulaire de démonstration — rien n’est envoyé",
-  "sent": "Merci — sur un site en ligne, ce message serait maintenant dans votre boîte de réception.",
+  "sent": "Merci. Votre message a bien été envoyé et nous reviendrons vers vous.",
   "errName": "Merci d’indiquer votre nom.",
   "errMail": "Merci de vérifier l’adresse e-mail.",
   "errMsg": "Merci de décrire l’installation.",
@@ -381,7 +383,9 @@ var T = {
   "s4c": "Témoin FAT, HAT, SIT et SAT",
   "prjHint": "Sélectionnez un projet pour voir les détails.",
   "ppTitle": "Politique de confidentialité",
-  "ppBack": "Retour au site"
+  "ppBack": "Retour au site",
+  "sending": "Envoi en cours…",
+  "sendFail": "Votre message n’a pas pu être envoyé. Écrivez-nous directement à <a href=\"mailto:info@energyexpertsbv.com\">info@energyexpertsbv.com</a>."
  },
  "nl": {
   "skip": "Naar inhoud",
@@ -509,7 +513,7 @@ var T = {
   "pfAll": "Alles toestaan",
   "mDur": "Doorlooptijd",
   "mScope": "Geleverde opdracht",
-  "sent": "Bedankt — op een live site zou dit nu in uw mailbox staan.",
+  "sent": "Bedankt. Uw bericht is verzonden en wij nemen contact met u op.",
   "errName": "Vul uw naam in.",
   "errMail": "Controleer het e-mailadres.",
   "errMsg": "Beschrijf de installatie.",
@@ -572,6 +576,8 @@ var T = {
   "s4c": "Getuige bij FAT, HAT, SIT en SAT",
   "prjHint": "Selecteer een project voor de details.",
   "ppTitle": "Privacyverklaring",
-  "ppBack": "Terug naar de website"
+  "ppBack": "Terug naar de website",
+  "sending": "Bezig met verzenden…",
+  "sendFail": "Uw bericht kon niet worden verzonden. Mail ons rechtstreeks via <a href=\"mailto:info@energyexpertsbv.com\">info@energyexpertsbv.com</a>."
  }
 };

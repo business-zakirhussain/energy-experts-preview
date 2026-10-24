@@ -269,6 +269,7 @@
 
   /* ---------- enquiry form ---------- */
   var form = $("#enq"), note = $("#fnote");
+  var formOpened = Date.now();
   on(form, "submit", function (e) {
     e.preventDefault();
     var hp = form.querySelector('[name="website"]'); if (hp && hp.value) return;
@@ -279,7 +280,25 @@
     else { var c = form.querySelector(".consent input"); if (c && !c.checked) err = T[L].errConsent; }
     if (!note) return;
     if (err) { note.textContent = err; note.classList.remove("ok"); return; }
-    note.textContent = T[L].sent; note.classList.add("ok"); form.reset();
+    var btn = form.querySelector('[type="submit"]'), fs = $("#fs");
+    var phone = v("#fp") ? (v("#fcc") + " " + v("#fp")).trim() : "";
+    btn.disabled = true; note.classList.remove("ok"); note.textContent = T[L].sending;
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        first: v("#fn"), last: v("#fl"), company: v("#fc"), email: v("#fe"), phone: phone,
+        service: fs && fs.selectedIndex >= 0 ? fs.options[fs.selectedIndex].text : "",
+        message: v("#fm"), consent: true, website: hp ? hp.value : "",
+        elapsed: Date.now() - formOpened, lang: L
+      })
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && j.ok; }); })
+      .catch(function () { return false; })
+      .then(function (ok) {
+        btn.disabled = false;
+        if (ok) { note.textContent = T[L].sent; note.classList.add("ok"); form.reset(); }
+        else { note.innerHTML = T[L].sendFail; note.classList.remove("ok"); }   /* keeps what they typed */
+      });
   });
 
   /* ---------- design switcher (demo only) ---------- */
