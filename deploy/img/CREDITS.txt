@@ -1,10 +1,4 @@
 Photo credits — all images from Wikimedia Commons, used under the licence stated.
-Replace with the client's own photography before launch.
-
-wind-norther.jpg
-  Norther wind farm, North Sea.jpg
-  by European Union , Copernicus Sentinel-2  imagery — Attribution
-  https://commons.wikimedia.org/wiki/File:Norther_wind_farm,_North_Sea.jpg
 
 wind-thornton-air.jpg
   Aerial view of Thorntonbank Wind Farm.jpg
@@ -21,11 +15,6 @@ vessel-cable.jpg
   by Hans Hillewaert — CC BY-SA 4.0
   https://commons.wikimedia.org/wiki/File:Cable_Innovator_(C-Power).jpg
 
-solar-dulmen.jpg
-  Dülmen, Solarpark -- 2014 -- 8132.jpg
-  by Dietmar Rabich — CC BY-SA 4.0
-  https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Solarpark_--_2014_--_8132.jpg
-
 solar-nottuln.jpg
   Nottuln, Appelhülsen, Fotovoltaikpark -- 2014 -- 7388.jpg
   by Dietmar Rabich — CC BY-SA 4.0
@@ -35,16 +24,6 @@ hv-switchgear-1.jpg
   High-voltage switchgear 01.jpg
   by Novoklimov — CC BY 4.0
   https://commons.wikimedia.org/wiki/File:High-voltage_switchgear_01.jpg
-
-hv-switchgear-4.jpg
-  High-voltage switchgear 04.jpg
-  by Novoklimov — CC BY 4.0
-  https://commons.wikimedia.org/wiki/File:High-voltage_switchgear_04.jpg
-
-oss-blighbank.jpg
-  Bligh Bank 2 offshore substation BE 2016.jpg
-  by Askjell (Askjell Nicolas Raudøy) — CC BY 2.0
-  https://commons.wikimedia.org/wiki/File:Bligh_Bank_2_offshore_substation_BE_2016.jpg
 
 oss-sarens.jpg
   Electrical offshore substation ROW01-Z01 on Sarens barge Caroline.jpg
