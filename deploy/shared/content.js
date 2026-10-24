@@ -90,7 +90,7 @@ var T = {
   "o3": "Solar PV inspection",
   "o4": "Something else",
   "f5": "Describe the installation",
-  "f6": "I agree that Energy Experts BV may store and use these details to answer my enquiry, as described in the privacy policy.",
+  "f6": "I agree that Energy Experts BV may store and use these details to answer my enquiry, as described in the <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">privacy policy</a>.",
   "f7": "Send enquiry",
   "f8": "Demo form &mdash; nothing is sent",
   "mapB": "Open in Maps",
@@ -113,7 +113,7 @@ var T = {
   "fCk": "Cookie settings",
   "fBtm": "Design concept &middot; placeholder content",
   "ckH": "We keep this simple",
-  "ckP": "This site sets no cookies and loads nothing from other companies. We only want to remember your language and your light or dark choice in this browser. Read the <a href=\"#\">privacy policy</a>.",
+  "ckP": "This site sets no cookies and loads nothing from other companies. We only want to remember your language and your light or dark choice in this browser. Read the <a href=\"privacy.html\">privacy policy</a>.",
   "ckAll": "Accept all",
   "ckNone": "Reject all",
   "ckCust": "Choose what loads",
@@ -188,7 +188,9 @@ var T = {
   "s4a": "Primary & secondary systems commissioning",
   "s4b": "Protection, control & SCADA testing",
   "s4c": "FAT, HAT, SIT & SAT witnessing",
-  "prjHint": "Select a project to see the details."
+  "prjHint": "Select a project to see the details.",
+  "ppTitle": "Privacy policy",
+  "ppBack": "Back to the website"
  },
  "fr": {
   "skip": "Aller au contenu",
@@ -285,7 +287,7 @@ var T = {
   "o2": "Éolien offshore",
   "o3": "Inspection photovoltaïque",
   "o4": "Autre demande",
-  "f6": "J’accepte qu’Energy Experts BV conserve et utilise ces informations pour répondre à ma demande, comme décrit dans la politique de confidentialité.",
+  "f6": "J’accepte qu’Energy Experts BV conserve et utilise ces informations pour répondre à ma demande, comme décrit dans la <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">politique de confidentialité</a>.",
   "f7": "Envoyer la demande",
   "f8": "Formulaire de démonstration — rien n’est envoyé",
   "sent": "Merci — sur un site en ligne, ce message serait maintenant dans votre boîte de réception.",
@@ -307,7 +309,7 @@ var T = {
   "fCk": "Paramètres des cookies",
   "fBtm": "Concept graphique · contenu provisoire",
   "ckH": "Nous restons simples",
-  "ckP": "Ce site ne dépose aucun cookie et ne charge rien provenant d’autres sociétés. Nous souhaitons uniquement mémoriser votre langue et votre choix clair ou sombre dans ce navigateur. Consultez la <a href=\"#\">politique de confidentialité</a>.",
+  "ckP": "Ce site ne dépose aucun cookie et ne charge rien provenant d’autres sociétés. Nous souhaitons uniquement mémoriser votre langue et votre choix clair ou sombre dans ce navigateur. Consultez la <a href=\"privacy.html\">politique de confidentialité</a>.",
   "ckAll": "Tout accepter",
   "ckNone": "Tout refuser",
   "ckCust": "Choisir ce qui se charge",
@@ -377,7 +379,9 @@ var T = {
   "s4a": "Mise en service des systèmes primaires et secondaires",
   "s4b": "Essais protection, contrôle-commande et SCADA",
   "s4c": "Témoin FAT, HAT, SIT et SAT",
-  "prjHint": "Sélectionnez un projet pour voir les détails."
+  "prjHint": "Sélectionnez un projet pour voir les détails.",
+  "ppTitle": "Politique de confidentialité",
+  "ppBack": "Retour au site"
  },
  "nl": {
   "skip": "Naar inhoud",
@@ -468,7 +472,7 @@ var T = {
   "o3": "Inspectie zonne-installatie",
   "o4": "Iets anders",
   "f5": "Beschrijf de installatie",
-  "f6": "Ik ga ermee akkoord dat Energy Experts BV deze gegevens bewaart en gebruikt om mijn vraag te beantwoorden, zoals beschreven in de privacyverklaring.",
+  "f6": "Ik ga ermee akkoord dat Energy Experts BV deze gegevens bewaart en gebruikt om mijn vraag te beantwoorden, zoals beschreven in de <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">privacyverklaring</a>.",
   "f7": "Vraag versturen",
   "f8": "Demoformulier — er wordt niets verzonden",
   "mapB": "Openen in Maps",
@@ -491,7 +495,7 @@ var T = {
   "fCk": "Voorkeuren",
   "fBtm": "Ontwerpconcept · voorbeeldinhoud",
   "ckH": "Wij houden het eenvoudig",
-  "ckP": "Deze site plaatst geen cookies en laadt niets van andere bedrijven. Wij willen enkel uw taal en uw keuze voor licht of donker in deze browser onthouden. Lees de <a href=\"#\">privacyverklaring</a>.",
+  "ckP": "Deze site plaatst geen cookies en laadt niets van andere bedrijven. Wij willen enkel uw taal en uw keuze voor licht of donker in deze browser onthouden. Lees de <a href=\"privacy.html\">privacyverklaring</a>.",
   "ckAll": "Mijn keuzes onthouden",
   "ckNone": "Niets bewaren",
   "ckCust": "Zelf kiezen",
@@ -566,6 +570,8 @@ var T = {
   "s4a": "Indienststelling primaire en secundaire systemen",
   "s4b": "Testen van beveiliging, besturing en SCADA",
   "s4c": "Getuige bij FAT, HAT, SIT en SAT",
-  "prjHint": "Selecteer een project voor de details."
+  "prjHint": "Selecteer een project voor de details.",
+  "ppTitle": "Privacyverklaring",
+  "ppBack": "Terug naar de website"
  }
 };

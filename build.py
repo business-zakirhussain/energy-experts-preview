@@ -184,8 +184,8 @@ LEGAL = '''<b>Energy Experts BV</b><br>Albrecht Rodenbachlaan 29, 1850 Grimberge
 <span data-i18n="fEnt">Enterprise no.</span> 1024.608.228 &middot; <span data-i18n="fVat">VAT</span> BE 1024.608.228 &middot; RPR Brussel'''
 
 FOOT_LINKS = '''<div><h4 data-i18n="fNav">Site</h4><a href="#services" data-i18n="nav1b">Services</a><a href="#sectors" data-i18n="nav6b">Sectors</a><a href="#projects" data-i18n="nav2b">Projects</a><a href="#approach" data-i18n="nav3b">Approach</a></div>
-<div><h4 data-i18n="fComp">Company</h4><a href="#about" data-i18n="nav4b">About</a><a href="#faq" data-i18n="fFaq">FAQ</a><a href="#contact" data-i18n="nav5b">Contact</a><a href="#" data-i18n="fCareer">Careers</a></div>
-<div><h4 data-i18n="fLegal">Legal</h4><a href="#" data-i18n="fl1">Privacy policy</a><a href="#" data-i18n="fl3">Terms &amp; conditions</a><a href="#" data-i18n="fl4">Complaints</a><a href="img/CREDITS.txt" data-i18n="photoCredits">Photo credits</a></div>'''
+<div><h4 data-i18n="fComp">Company</h4><a href="#about" data-i18n="nav4b">About</a><a href="#faq" data-i18n="fFaq">FAQ</a><a href="#contact" data-i18n="nav5b">Contact</a><a href="#career" data-i18n="fCareer">Careers</a></div>
+<div><h4 data-i18n="fLegal">Legal</h4><a href="privacy.html" data-i18n="fl1">Privacy policy</a><a href="img/CREDITS.txt" data-i18n="photoCredits">Photo credits</a></div>'''
 
 FOOT_BTM = '''<span>&copy; 2026 Energy Experts BV</span>
 <span><button id="ckOpen" data-i18n="fCk">Cookie settings</button> &middot; <span data-i18n="fBtm">Design concept &middot; placeholder content</span></span>'''
@@ -207,6 +207,11 @@ for fn in sorted(os.listdir(SRC)):
     html = rd(os.path.join(SRC, fn))
     for k, v in REPL.items(): html = html.replace("<!-- %s -->" % k, v)
     html = render_site(html, SITE)
+    if fn != "index.html":
+        # share the home page's design CSS, and send in-page anchors back to the home page
+        style = re.search(r"<style>.*?</style>", rd(os.path.join(SRC, "index.html")), re.S).group(0)
+        html = html.replace("<!-- @pagestyle -->", style)
+        html = re.sub(r'href="#(?!main")([A-Za-z])', r'href="./#\1', html)
     left = re.findall(r"<!-- @\w+ -->", html)
     if left: print("WARN unknown markers in", fn, left)
     io.open(os.path.join(OUT, fn), "w", encoding="utf-8").write(html)
